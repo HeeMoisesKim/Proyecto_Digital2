@@ -1,4 +1,4 @@
-# 1 "SPI.c"
+# 1 "temperatura.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "SPI.c" 2
-# 10 "SPI.c"
-# 1 "./SPI.h" 1
-# 15 "./SPI.h"
+# 1 "temperatura.c" 2
+
+
+
+
+
+
+
+
 # 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2494,83 +2499,189 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 15 "./SPI.h" 2
+# 9 "temperatura.c" 2
+
+# 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int8_t;
 
 
 
-typedef enum
-{
-    SPI_MASTER_OSC_DIV4 = 0b00100000,
-    SPI_MASTER_OSC_DIV16 = 0b00100001,
-    SPI_MASTER_OSC_DIV64 = 0b00100010,
-    SPI_MASTER_TMR2 = 0b00100011,
-    SPI_SLAVE_SS_EN = 0b00100100,
-    SPI_SLAVE_SS_DIS = 0b00100101
-}Spi_Type;
-
-typedef enum
-{
-    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
-    SPI_DATA_SAMPLE_END = 0b10000000
-}Spi_Data_Sample;
-
-typedef enum
-{
-    SPI_CLOCK_IDLE_HIGH = 0b00010000,
-    SPI_CLOCK_IDLE_LOW = 0b00000000
-}Spi_Clock_Idle;
-
-typedef enum
-{
-    SPI_IDLE_2_ACTIVE = 0b00000000,
-    SPI_ACTIVE_2_IDLE = 0b01000000
-}Spi_Transmit_Edge;
 
 
-void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-void spiWrite(char);
-unsigned spiDataReady();
-char spiRead();
-# 10 "SPI.c" 2
+
+typedef signed int int16_t;
 
 
-void spiInit(Spi_Type sType, Spi_Data_Sample sDataSample, Spi_Clock_Idle sClockIdle, Spi_Transmit_Edge sTransmitEdge)
-{
-    TRISC5 = 0;
-    if(sType & 0b00000100)
-    {
-        SSPSTAT = sTransmitEdge;
-        TRISC3 = 1;
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 10 "temperatura.c" 2
+
+# 1 "./temperatura.h" 1
+# 39 "./temperatura.h"
+# 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
+# 39 "./temperatura.h" 2
+
+
+void tRead(uint16_t *data);
+void tSetup(void);
+# 11 "temperatura.c" 2
+
+
+
+
+void tSetup(void){
+    ANSEL = 0;
+    TRISAbits.TRISA0 = 0;
+    TRISAbits.TRISA1 = 0;
+    TRISAbits.TRISA2 = 1;
+
+    PORTAbits.RA1 = 1;
+    PORTAbits.RA2 = 0;
+    PORTAbits.RA0 = 0;
+    return;
+}
+
+
+void tRead(uint16_t *data){
+    uint16_t v=0;
+    uint16_t v2;
+    uint8_t i;
+    PORTAbits.RA1 = 0;
+    _delay((unsigned long)((1)*(4000000/4000.0)));
+
+    for (i=0;i<16;i++){
+        v = 0x0000 + PORTAbits.RA2;
+        v2 = v2|v;
+        v2 <<= 1;
+        PORTAbits.RA0 = 1;
+        _delay((unsigned long)((1)*(4000000/4000.0)));
+        PORTAbits.RA0 = 0;
+        _delay((unsigned long)((1)*(4000000/4000.0)));
     }
-    else
-    {
-        SSPSTAT = sDataSample | sTransmitEdge;
-        TRISC3 = 0;
-    }
 
-    SSPCON = sType | sClockIdle;
-}
+    _delay((unsigned long)((1)*(4000000/4000.0)));
+    PORTAbits.RA1 = 1;
 
-static void spiReceiveWait()
-{
-    while ( !SSPSTATbits.BF );
-}
-
-void spiWrite(char dat)
-{
-    SSPBUF = dat;
-}
-
-unsigned spiDataReady()
-{
-    if(SSPSTATbits.BF)
-        return 1;
-    else
-        return 0;
-}
-
-char spiRead()
-{
-    spiReceiveWait();
-    return(SSPBUF);
+    *data = v2 >> 3;
+    return;
 }

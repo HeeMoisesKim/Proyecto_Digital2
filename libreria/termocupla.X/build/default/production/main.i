@@ -2645,43 +2645,6 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 29 "main.c" 2
 
-# 1 "./SPI.h" 1
-# 18 "./SPI.h"
-typedef enum
-{
-    SPI_MASTER_OSC_DIV4 = 0b00100000,
-    SPI_MASTER_OSC_DIV16 = 0b00100001,
-    SPI_MASTER_OSC_DIV64 = 0b00100010,
-    SPI_MASTER_TMR2 = 0b00100011,
-    SPI_SLAVE_SS_EN = 0b00100100,
-    SPI_SLAVE_SS_DIS = 0b00100101
-}Spi_Type;
-
-typedef enum
-{
-    SPI_DATA_SAMPLE_MIDDLE = 0b00000000,
-    SPI_DATA_SAMPLE_END = 0b10000000
-}Spi_Data_Sample;
-
-typedef enum
-{
-    SPI_CLOCK_IDLE_HIGH = 0b00010000,
-    SPI_CLOCK_IDLE_LOW = 0b00000000
-}Spi_Clock_Idle;
-
-typedef enum
-{
-    SPI_IDLE_2_ACTIVE = 0b00000000,
-    SPI_ACTIVE_2_IDLE = 0b01000000
-}Spi_Transmit_Edge;
-
-
-void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-void spiWrite(char);
-unsigned spiDataReady();
-char spiRead();
-# 30 "main.c" 2
-
 # 1 "./LCD.h" 1
 # 35 "./LCD.h"
 # 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
@@ -2700,28 +2663,34 @@ void lcd_wchar(char dato);
 void lcd_wstring(char *string);
 
 void lcd_command(uint8_t a);
+# 30 "main.c" 2
+
+# 1 "./temperatura.h" 1
+# 39 "./temperatura.h"
+# 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
+# 39 "./temperatura.h" 2
+
+
+void tRead(uint16_t *data);
+void tSetup(void);
 # 31 "main.c" 2
 
 
 
 
-uint8_t temperatura=0;
+uint16_t temperatura=0;
 uint8_t c1=0;
 uint8_t d1=0;
 uint8_t u1=0;
 
 void setup(void);
-void int_distance(uint8_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
+void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
 
 void main(void) {
     setup();
-    spiWrite(1);
+    PORTAbits.RA1=1;
     while(1){
-        _delay((unsigned long)((1)*(4000000/4000.0)));
-        spiWrite(0);
-        temperatura = spiRead();
-        _delay((unsigned long)((1)*(4000000/4000.0)));
-        spiWrite(1);
+        tRead(&temperatura);
         int_distance(temperatura, &c1, &d1, &u1);
 
         lcd_cursor(1,3);
@@ -2736,16 +2705,18 @@ void main(void) {
 }
 
 void setup(void){
-    spiInit(SPI_MASTER_OSC_DIV64, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     lcd_setup();
+    tSetup();
     return;
 }
 
-void int_distance(uint8_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
+void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
     uint8_t c;
     uint8_t d;
     uint8_t u;
-    float conv=0.000041*5*((char)valor-25);
+    float conv = valor&0x0FFF;
+
+
     c = (uint8_t)(valor/100);
     d = (uint8_t)((((conv)/10)-(c*10)));
     u = (uint8_t)((conv)/1-(c*100+d*10));
