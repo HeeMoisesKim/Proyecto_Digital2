@@ -27,33 +27,29 @@
 
 #include <xc.h>
 #include <stdint.h>
-#include "SPI.h"
 #include "LCD.h"
+#include "temperatura.h"
 
 #define _XTAL_FREQ 4000000
 
-uint8_t temperatura=0;
+uint16_t temperatura=0;
 uint8_t c1=0;
 uint8_t d1=0;
 uint8_t u1=0;
 
 void setup(void);
-void int_distance(uint8_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
+void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
 
 void main(void) {
     setup();
-    spiWrite(1);
+    cs=1;
     while(1){
-        __delay_ms(1);
-        spiWrite(0);
-        temperatura = spiRead();
-        __delay_ms(1);
-        spiWrite(1);
+        tRead(&temperatura);
         int_distance(temperatura, &c1, &d1, &u1);
         
         lcd_cursor(1,3);
         lcd_wstring("temperatura");
-        lcd_cursor(2,8);
+        lcd_cursor(2,8); 
         lcd_wchar(c1);
         lcd_wchar(d1);
         lcd_wstring(".");
@@ -63,16 +59,18 @@ void main(void) {
 }
 
 void setup(void){
-    spiInit(SPI_MASTER_OSC_DIV64, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     lcd_setup();
+    tSetup();
     return;
 }
 
-void int_distance(uint8_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
+void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
     uint8_t c;
     uint8_t d;
     uint8_t u;
-    float conv=0.000041*5*((char)valor-25);
+    float conv = valor&0x0FFF;
+    //float conv=0.000041*5*((uint16_t)valor-25);
+    //float conv=((float)valor/2.021142857-25);
     c = (uint8_t)(valor/100);
     d = (uint8_t)((((conv)/10)-(c*10)));
     u = (uint8_t)((conv)/1-(c*100+d*10));
