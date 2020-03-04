@@ -1,8 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"3387 D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
-[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
-"1422
+"1422 D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1422:     struct {
 [s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S53 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
@@ -13,6 +10,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1433
 [; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1433: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
 [v _TRISAbits `VS52 ~T0 @X0 0 e@133 ]
+"3387
+[; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "172
 [; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 172:     struct {
 [s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -269,105 +269,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _tSetup ]
 [f ]
 "16
-[; ;temperatura.c: 16:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"17
-[; ;temperatura.c: 17:     TRISAbits.TRISA0 = 0;
+[; ;temperatura.c: 16:     TRISAbits.TRISA0 = 0;
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-"18
-[; ;temperatura.c: 18:     TRISAbits.TRISA1 = 0;
+"17
+[; ;temperatura.c: 17:     TRISAbits.TRISA1 = 0;
 [e = . . _TRISAbits 0 1 -> -> 0 `i `uc ]
-"19
-[; ;temperatura.c: 19:     TRISAbits.TRISA2 = 1;
+"18
+[; ;temperatura.c: 18:     TRISAbits.TRISA2 = 1;
 [e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
-"21
-[; ;temperatura.c: 21:     PORTAbits.RA1 = 1;
+"19
+[; ;temperatura.c: 19:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"20
+[; ;temperatura.c: 20:     PORTAbits.RA1 = 1;
 [e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
+"21
+[; ;temperatura.c: 21:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "22
-[; ;temperatura.c: 22:     PORTAbits.RA2 = 0;
-[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
-"23
-[; ;temperatura.c: 23:     PORTAbits.RA0 = 0;
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-"24
-[; ;temperatura.c: 24:     return;
+[; ;temperatura.c: 22:     return;
 [e $UE 138  ]
-"25
-[; ;temperatura.c: 25: }
+"23
+[; ;temperatura.c: 23: }
 [e :UE 138 ]
 }
-"28
-[; ;temperatura.c: 28: void tRead(uint16_t *data){
-[v _tRead `(v ~T0 @X0 1 ef1`*ui ]
+"26
+[; ;temperatura.c: 26: uint16_t tRead(void){
+[v _tRead `(ui ~T0 @X0 1 ef ]
 {
 [e :U _tRead ]
-[v _data `*ui ~T0 @X0 1 r1 ]
 [f ]
-"29
-[; ;temperatura.c: 29:     uint16_t v=0;
-[v _v `ui ~T0 @X0 1 a ]
-[e = _v -> -> 0 `i `ui ]
-"30
-[; ;temperatura.c: 30:     uint16_t v2;
-[v _v2 `ui ~T0 @X0 1 a ]
-"31
-[; ;temperatura.c: 31:     uint8_t i;
+"27
+[; ;temperatura.c: 27:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"32
-[; ;temperatura.c: 32:     PORTAbits.RA1 = 0;
+"28
+[; ;temperatura.c: 28:     uint8_t v;
+[v _v `uc ~T0 @X0 1 a ]
+"29
+[; ;temperatura.c: 29:     uint16_t valor=0;
+[v _valor `ui ~T0 @X0 1 a ]
+[e = _valor -> -> 0 `i `ui ]
+"30
+[; ;temperatura.c: 30:     PORTAbits.RA1 = 0;
 [e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
-"33
-[; ;temperatura.c: 33:     _delay((unsigned long)((1)*(4000000/4000.0)));
+"31
+[; ;temperatura.c: 31:     _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"35
-[; ;temperatura.c: 35:     for (i=0;i<16;i++){
+"33
+[; ;temperatura.c: 33:     for (i=0;i<16;i++){
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 16 `i 140  ]
 [e $U 141  ]
 [e :U 140 ]
 {
-"36
-[; ;temperatura.c: 36:         v = 0x0000 + PORTAbits.RA2;
-[e = _v -> + -> 0 `i -> . . _PORTAbits 0 2 `i `ui ]
-"37
-[; ;temperatura.c: 37:         v2 = v2|v;
-[e = _v2 | _v2 _v ]
-"38
-[; ;temperatura.c: 38:         v2 <<= 1;
-[e =<< _v2 -> -> 1 `i `ui ]
-"39
-[; ;temperatura.c: 39:         PORTAbits.RA0 = 1;
+"34
+[; ;temperatura.c: 34:         PORTAbits.RA0 = 1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"35
+[; ;temperatura.c: 35:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"37
+[; ;temperatura.c: 37:         valor = valor|PORTAbits.RA2;
+[e = _valor | _valor -> . . _PORTAbits 0 2 `ui ]
+"38
+[; ;temperatura.c: 38:         valor <<= 1;
+[e =<< _valor -> -> 1 `i `ui ]
+"39
+[; ;temperatura.c: 39:         PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
 "40
 [; ;temperatura.c: 40:         _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "41
-[; ;temperatura.c: 41:         PORTAbits.RA0 = 0;
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-"42
-[; ;temperatura.c: 42:         _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"43
-[; ;temperatura.c: 43:     }
+[; ;temperatura.c: 41:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 16 `i 140  ]
 [e :U 141 ]
 }
-"45
-[; ;temperatura.c: 45:     _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"46
-[; ;temperatura.c: 46:     PORTAbits.RA1 = 1;
+"43
+[; ;temperatura.c: 43:     PORTAbits.RA1 = 1;
 [e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
-"48
-[; ;temperatura.c: 48:     *data = v2 >> 3;
-[e = *U _data >> _v2 -> 3 `i ]
-"49
-[; ;temperatura.c: 49:     return;
+"44
+[; ;temperatura.c: 44:     if (valor & 0x4) {
+[e $ ! != & _valor -> -> 4 `i `ui -> -> 0 `i `ui 143  ]
+{
+"47
+[; ;temperatura.c: 47:         return -100;
+[e ) -> -U -> 100 `i `ui ]
 [e $UE 139  ]
+"48
+[; ;temperatura.c: 48:     }
+}
+[e :U 143 ]
 "50
-[; ;temperatura.c: 50: }
+[; ;temperatura.c: 50:     valor >>= 3;
+[e =>> _valor -> -> 3 `i `ui ]
+"51
+[; ;temperatura.c: 51:     valor = valor/4;
+[e = _valor / _valor -> -> 4 `i `ui ]
+"52
+[; ;temperatura.c: 52:     return valor;
+[e ) _valor ]
+[e $UE 139  ]
+"53
+[; ;temperatura.c: 53: }
 [e :UE 139 ]
 }

@@ -2642,7 +2642,7 @@ typedef uint16_t uintptr_t;
 # 39 "./temperatura.h" 2
 
 
-void tRead(uint16_t *data);
+uint16_t tRead(void);
 void tSetup(void);
 # 11 "temperatura.c" 2
 
@@ -2650,38 +2650,41 @@ void tSetup(void);
 
 
 void tSetup(void){
-    ANSEL = 0;
     TRISAbits.TRISA0 = 0;
     TRISAbits.TRISA1 = 0;
     TRISAbits.TRISA2 = 1;
-
+    ANSEL = 0;
     PORTAbits.RA1 = 1;
-    PORTAbits.RA2 = 0;
-    PORTAbits.RA0 = 0;
+    _delay((unsigned long)((1000)*(4000000/4000.0)));
     return;
 }
 
 
-void tRead(uint16_t *data){
-    uint16_t v=0;
-    uint16_t v2;
+uint16_t tRead(void){
     uint8_t i;
+    uint8_t v;
+    uint16_t valor=0;
     PORTAbits.RA1 = 0;
     _delay((unsigned long)((1)*(4000000/4000.0)));
 
     for (i=0;i<16;i++){
-        v = 0x0000 + PORTAbits.RA2;
-        v2 = v2|v;
-        v2 <<= 1;
         PORTAbits.RA0 = 1;
         _delay((unsigned long)((1)*(4000000/4000.0)));
+
+        valor = valor|PORTAbits.RA2;
+        valor <<= 1;
         PORTAbits.RA0 = 0;
         _delay((unsigned long)((1)*(4000000/4000.0)));
     }
 
-    _delay((unsigned long)((1)*(4000000/4000.0)));
     PORTAbits.RA1 = 1;
+    if (valor & 0x4) {
 
-    *data = v2 >> 3;
-    return;
+
+        return -100;
+    }
+
+    valor >>= 3;
+    valor = valor/4;
+    return valor;
 }

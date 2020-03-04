@@ -2671,7 +2671,7 @@ void lcd_command(uint8_t a);
 # 39 "./temperatura.h" 2
 
 
-void tRead(uint16_t *data);
+uint16_t tRead(void);
 void tSetup(void);
 # 31 "main.c" 2
 
@@ -2686,13 +2686,17 @@ uint8_t u1=0;
 void setup(void);
 void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
 
+void __attribute__((picinterrupt(("")))) isr(){
+    return;
+}
+
 void main(void) {
     setup();
-    PORTAbits.RA1=1;
     while(1){
-        tRead(&temperatura);
-        int_distance(temperatura, &c1, &d1, &u1);
-
+        temperatura = tRead();
+        if(temperatura != -100){
+            int_distance(temperatura, &c1, &d1, &u1);
+        }
         lcd_cursor(1,3);
         lcd_wstring("temperatura");
         lcd_cursor(2,8);
@@ -2700,6 +2704,7 @@ void main(void) {
         lcd_wchar(d1);
         lcd_wstring(".");
         lcd_wchar(u1);
+        _delay((unsigned long)((100)*(4000000/4000.0)));
     }
     return;
 }
@@ -2714,10 +2719,8 @@ void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
     uint8_t c;
     uint8_t d;
     uint8_t u;
-    float conv = valor&0x0FFF;
-
-
-    c = (uint8_t)(valor/100);
+    float conv = ((float)valor/0.2217506684);
+    c = (uint8_t)(conv/100);
     d = (uint8_t)((((conv)/10)-(c*10)));
     u = (uint8_t)((conv)/1-(c*100+d*10));
     *v1=c+48;
