@@ -13,38 +13,41 @@
 #define _XTAL_FREQ 4000000
 
 void tSetup(void){
-    ANSEL = 0;
     TRISAbits.TRISA0 = 0; //clk
     TRISAbits.TRISA1 = 0; //decidir si leer o no, 0 leer y 1 convertir
     TRISAbits.TRISA2 = 1; //la entrada de la termocupla
-    
+    ANSEL = 0;
     cs = 1;
-    PORTAbits.RA2 = 0;
-    PORTAbits.RA0 = 0;
+    __delay_ms(1000);
     return;
 }
 
 
-void tRead(uint16_t *data){
-    uint16_t v=0;
-    uint16_t v2;
+uint16_t tRead(void){
     uint8_t i;
+    uint8_t v;
+    uint16_t valor=0;
     cs = 0;
     __delay_ms(1);
-    
+    //cs = 1;
     for (i=0;i<16;i++){
-        v = 0x0000 + PORTAbits.RA2;
-        v2 = v2|v;
-        v2 <<= 1;
         clk = 1;
         __delay_ms(1);
+        //v = 0x0000 + PORTAbits.RA2;
+        valor = valor|PORTAbits.RA2;
+        valor <<= 1;
         clk = 0;
         __delay_ms(1);
     }
     
-    __delay_ms(1);
     cs = 1;
+    if (valor & 0x4) {
+        // uh oh, no thermocouple attached!
+        //return NAN; 
+        return -100;
+    }
     
-    *data = v2 >> 3;
-    return;
+    valor >>= 3;
+    valor = valor/4;
+    return valor;
 }

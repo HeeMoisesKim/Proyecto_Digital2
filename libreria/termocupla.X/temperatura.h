@@ -38,7 +38,7 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h>
 
-void tRead(uint16_t *data);
+uint16_t tRead(void);
 void tSetup(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
