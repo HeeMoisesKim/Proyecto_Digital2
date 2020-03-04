@@ -40,13 +40,17 @@ uint8_t u1=0;
 void setup(void);
 void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
 
+void __interrupt() isr(){
+    return;
+}
+
 void main(void) {
     setup();
-    cs=1;
     while(1){
-        tRead(&temperatura);
-        int_distance(temperatura, &c1, &d1, &u1);
-        
+        temperatura = tRead();
+        if(temperatura != -100){
+            int_distance(temperatura, &c1, &d1, &u1);
+        }
         lcd_cursor(1,3);
         lcd_wstring("temperatura");
         lcd_cursor(2,8); 
@@ -54,6 +58,7 @@ void main(void) {
         lcd_wchar(d1);
         lcd_wstring(".");
         lcd_wchar(u1);
+        __delay_ms(100);
     }
     return;
 }
@@ -68,10 +73,8 @@ void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
     uint8_t c;
     uint8_t d;
     uint8_t u;
-    float conv = valor&0x0FFF;
-    //float conv=0.000041*5*((uint16_t)valor-25);
-    //float conv=((float)valor/2.021142857-25);
-    c = (uint8_t)(valor/100);
+    float conv = ((float)valor/0.2217506684);
+    c = (uint8_t)(conv/100);
     d = (uint8_t)((((conv)/10)-(c*10)));
     u = (uint8_t)((conv)/1-(c*100+d*10));
     *v1=c+48;
