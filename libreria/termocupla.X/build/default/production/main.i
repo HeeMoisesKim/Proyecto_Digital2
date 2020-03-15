@@ -2675,36 +2675,115 @@ uint16_t tRead(void);
 void tSetup(void);
 # 31 "main.c" 2
 
+# 1 "./I2C.h" 1
+# 20 "./I2C.h"
+# 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
+# 20 "./I2C.h" 2
+# 29 "./I2C.h"
+void I2C_Master_Init(const unsigned long c);
 
 
 
-uint16_t temperatura=0;
+
+
+
+
+void I2C_Master_Wait(void);
+
+
+
+void I2C_Master_Start(void);
+
+
+
+void I2C_Master_RepeatedStart(void);
+
+
+
+void I2C_Master_Stop(void);
+
+
+
+
+
+void I2C_Master_Write(unsigned d);
+
+
+
+
+unsigned short I2C_Master_Read(unsigned short a);
+
+
+
+void I2C_Slave_Init(uint8_t address);
+# 32 "main.c" 2
+
+
+
+
+uint32_t temperatura=0;
+uint32_t temperatura1=0;
 uint8_t c1=0;
 uint8_t d1=0;
 uint8_t u1=0;
+uint8_t borrar;
+uint8_t z;
+uint8_t mandar;
+uint8_t contador=0;
 
 void setup(void);
-void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
+void int_distance(uint32_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
+uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t *contador, uint32_t mandar);
 
-void __attribute__((picinterrupt(("")))) isr(){
+void __attribute__((picinterrupt(("")))) isr(void){
+    if(PIR1bits.SSPIF==1){
+        SSPCONbits.CKP = 0;
+
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;
+            SSPCONbits.SSPOV = 0;
+            SSPCONbits.WCOL = 0;
+            SSPCONbits.CKP = 1;
+        }
+
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+
+            z = SSPBUF;
+
+            PIR1bits.SSPIF = 0;
+            SSPCONbits.CKP = 1;
+            while(!SSPSTATbits.BF);
+            borrar = SSPBUF;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            z = SSPBUF;
+            BF = 0;
+            mandar=select(c1, d1, u1, &contador,temperatura1);
+            SSPBUF = mandar;
+            SSPCONbits.CKP = 1;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            while(SSPSTATbits.BF);
+
+        }
+
+        PIR1bits.SSPIF = 0;
+    }
     return;
 }
 
 void main(void) {
     setup();
     while(1){
+
         temperatura = tRead();
-        if(temperatura != -100){
-            int_distance(temperatura, &c1, &d1, &u1);
+        int_distance(temperatura1, &c1, &d1, &u1);
+        if (contador==0){
+            if(temperatura != -100){
+                temperatura1 = temperatura;
+            }
         }
-        lcd_cursor(1,3);
-        lcd_wstring("temperatura");
-        lcd_cursor(2,8);
-        lcd_wchar(c1);
-        lcd_wchar(d1);
-        lcd_wstring(".");
-        lcd_wchar(u1);
-        _delay((unsigned long)((100)*(4000000/4000.0)));
+# 108 "main.c"
+        _delay((unsigned long)((250)*(4000000/4000.0)));
     }
     return;
 }
@@ -2712,10 +2791,12 @@ void main(void) {
 void setup(void){
     lcd_setup();
     tSetup();
+
+    I2C_Slave_Init(0x30);
     return;
 }
 
-void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
+void int_distance(uint32_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
     uint8_t c;
     uint8_t d;
     uint8_t u;
@@ -2727,4 +2808,24 @@ void int_distance(uint16_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
     *v2=d+48;
     *v3=u+48;
     return;
+}
+
+uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t *contador, uint32_t mandar){
+    uint8_t z;
+    if (*contador==0){
+        *contador=*contador+1;
+        z = mandar>>16;
+        return a;
+    }
+    if (*contador==1){
+        *contador=*contador+1;
+        z = mandar>>8;
+        return b;
+    }
+    if (*contador==2){
+        *contador=0;
+        z = mandar;
+        return c;
+    }
+    return *contador;
 }

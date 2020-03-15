@@ -10,6 +10,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1433
 [; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1433: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
 [v _TRISAbits `VS52 ~T0 @X0 0 e@133 ]
+"3387
+[; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "172
 [; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 172:     struct {
 [s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -25,6 +28,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
 [p i __delay ]
+"44 ./peso.h
+[; ;./peso.h: 44: uint32_t tarar(void);
+[v _tarar `(ul ~T0 @X0 0 ef ]
 "54 D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -259,100 +265,166 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;D:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"14 peso.c
-[; ;peso.c: 14: void celdaSetup(void){
-[v _celdaSetup `(v ~T0 @X0 1 ef ]
+"16 peso.c
+[; ;peso.c: 16: uint32_t celdaSetup(void){
+[v _celdaSetup `(ul ~T0 @X0 1 ef ]
 {
 [e :U _celdaSetup ]
 [f ]
-"15
-[; ;peso.c: 15:     TRISAbits.TRISA0 = 0;
+"17
+[; ;peso.c: 17:     TRISAbits.TRISA0 = 0;
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-"16
-[; ;peso.c: 16:     TRISAbits.TRISA1 = 1;
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
 "18
-[; ;peso.c: 18:     PORTAbits.RA1 = 0;
-[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
+[; ;peso.c: 18:     TRISAbits.TRISA1 = 1;
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
 "19
-[; ;peso.c: 19:     PORTAbits.RA0 = 0;
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+[; ;peso.c: 19:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "20
-[; ;peso.c: 20:     return;
-[e $UE 138  ]
+[; ;peso.c: 20:     PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
 "21
-[; ;peso.c: 21: }
+[; ;peso.c: 21:     _delay((unsigned long)((4000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"22
+[; ;peso.c: 22:     uint32_t tare = 0;
+[v _tare `ul ~T0 @X0 1 a ]
+[e = _tare -> -> -> 0 `i `l `ul ]
+"23
+[; ;peso.c: 23:     tare = tarar();
+[e = _tare ( _tarar ..  ]
+"24
+[; ;peso.c: 24:     return tare;
+[e ) _tare ]
+[e $UE 138  ]
+"25
+[; ;peso.c: 25: }
 [e :UE 138 ]
 }
-"23
-[; ;peso.c: 23: uint32_t celdaRead(void){
+"27
+[; ;peso.c: 27: uint32_t celdaRead(void){
 [v _celdaRead `(ul ~T0 @X0 1 ef ]
 {
 [e :U _celdaRead ]
 [f ]
-"24
-[; ;peso.c: 24:     uint8_t i;
+"28
+[; ;peso.c: 28:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"25
-[; ;peso.c: 25:     uint32_t valor;
+"29
+[; ;peso.c: 29:     uint32_t valor=0;
 [v _valor `ul ~T0 @X0 1 a ]
-"26
-[; ;peso.c: 26:     uint32_t v;
+[e = _valor -> -> -> 0 `i `l `ul ]
+"30
+[; ;peso.c: 30:     uint32_t v;
 [v _v `ul ~T0 @X0 1 a ]
-"27
-[; ;peso.c: 27:     while(PORTAbits.RA1)
+"31
+[; ;peso.c: 31:     while(PORTAbits.RA1);
 [e $U 140  ]
 [e :U 141 ]
-"28
-[; ;peso.c: 28:     {}
-{
-}
 [e :U 140 ]
-"27
-[; ;peso.c: 27:     while(PORTAbits.RA1)
 [e $ != -> . . _PORTAbits 0 1 `i -> 0 `i 141  ]
 [e :U 142 ]
-"29
-[; ;peso.c: 29:     for(i=0;i<24;i++){
+"32
+[; ;peso.c: 32:     for(i=0;i<24;i++){
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 24 `i 143  ]
 [e $U 144  ]
 [e :U 143 ]
 {
-"30
-[; ;peso.c: 30:         v = 0x0+PORTAbits.RA1;;
-[e = _v -> -> + -> 0 `i -> . . _PORTAbits 0 1 `i `l `ul ]
-"31
-[; ;peso.c: 31:         valor = valor|v;
-[e = _valor | _valor _v ]
-"32
-[; ;peso.c: 32:         valor <<= 1;
-[e =<< _valor -> -> 1 `i `ul ]
 "33
 [; ;peso.c: 33:         PORTAbits.RA0 = 1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 "34
-[; ;peso.c: 34:         _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;peso.c: 34:         _delay((unsigned long)((1)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "35
 [; ;peso.c: 35:         PORTAbits.RA0 = 0;
 [e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
 "36
-[; ;peso.c: 36:         _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;peso.c: 36:         _delay((unsigned long)((1)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "37
-[; ;peso.c: 37:     }
+[; ;peso.c: 37:         valor <<= 1;
+[e =<< _valor -> -> 1 `i `ul ]
+"38
+[; ;peso.c: 38:         v = 0x0+PORTAbits.RA1;;
+[e = _v -> -> + -> 0 `i -> . . _PORTAbits 0 1 `i `l `ul ]
+"39
+[; ;peso.c: 39:         valor = valor|v;
+[e = _valor | _valor _v ]
+"40
+[; ;peso.c: 40:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 24 `i 143  ]
 [e :U 144 ]
 }
-"39
-[; ;peso.c: 39:     return valor;
+"41
+[; ;peso.c: 41:     PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"42
+[; ;peso.c: 42:     _delay((unsigned long)((1)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"43
+[; ;peso.c: 43:     PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+"53
+[; ;peso.c: 53:     valor = valor-0x80000000;
+[e = _valor - _valor -> 2147483648 `ul ]
+"54
+[; ;peso.c: 54:     return valor;
 [e ) _valor ]
 [e $UE 139  ]
-"40
-[; ;peso.c: 40: }
+"55
+[; ;peso.c: 55: }
 [e :UE 139 ]
+}
+"57
+[; ;peso.c: 57: uint32_t tarar(void){
+[v _tarar `(ul ~T0 @X0 1 ef ]
+{
+[e :U _tarar ]
+[f ]
+"58
+[; ;peso.c: 58:     uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"59
+[; ;peso.c: 59:     uint32_t sum;
+[v _sum `ul ~T0 @X0 1 a ]
+"60
+[; ;peso.c: 60:     uint32_t total=celdaRead();
+[v _total `ul ~T0 @X0 1 a ]
+[e = _total ( _celdaRead ..  ]
+"61
+[; ;peso.c: 61:     uint32_t pasado;
+[v _pasado `ul ~T0 @X0 1 a ]
+"62
+[; ;peso.c: 62:     for (i = 0; i < 20; i++) {
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 20 `i 147  ]
+[e $U 148  ]
+[e :U 147 ]
+{
+"63
+[; ;peso.c: 63:         pasado = total;
+[e = _pasado _total ]
+"64
+[; ;peso.c: 64:   total =(1-0.65)*celdaRead()+0.65*pasado;
+[e = _total -> + * - -> -> 1 `i `d .0.65 -> ( _celdaRead ..  `d * .0.65 -> _pasado `d `ul ]
+"65
+[; ;peso.c: 65:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 20 `i 147  ]
+[e :U 148 ]
+}
+"66
+[; ;peso.c: 66:  return total;
+[e ) _total ]
+[e $UE 146  ]
+"67
+[; ;peso.c: 67: }
+[e :UE 146 ]
 }

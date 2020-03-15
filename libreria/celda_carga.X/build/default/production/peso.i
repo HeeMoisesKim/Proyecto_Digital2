@@ -2636,6 +2636,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 10 "peso.c" 2
 
+
 # 1 "./peso.h" 1
 # 35 "./peso.h"
 # 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
@@ -2645,37 +2646,57 @@ typedef uint16_t uintptr_t;
 
 
 
-void celdaSetup(void);
+uint32_t celdaSetup(void);
 
 uint32_t celdaRead(void);
-# 11 "peso.c" 2
+
+uint32_t tarar(void);
+# 12 "peso.c" 2
 
 
 
-void celdaSetup(void){
+
+uint32_t celdaSetup(void){
     TRISAbits.TRISA0 = 0;
     TRISAbits.TRISA1 = 1;
-
-    PORTAbits.RA1 = 0;
+    ANSEL = 0;
     PORTAbits.RA0 = 0;
-    return;
+    _delay((unsigned long)((4000)*(4000000/4000.0)));
+    uint32_t tare = 0;
+    tare = tarar();
+    return tare;
 }
 
 uint32_t celdaRead(void){
     uint8_t i;
-    uint32_t valor;
+    uint32_t valor=0;
     uint32_t v;
-    while(PORTAbits.RA1)
-    {}
+    while(PORTAbits.RA1);
     for(i=0;i<24;i++){
+        PORTAbits.RA0 = 1;
+        _delay((unsigned long)((1)*(4000000/4000000.0)));
+        PORTAbits.RA0 = 0;
+        _delay((unsigned long)((1)*(4000000/4000000.0)));
+        valor <<= 1;
         v = 0x0+PORTAbits.RA1;;
         valor = valor|v;
-        valor <<= 1;
-        PORTAbits.RA0 = 1;
-        _delay((unsigned long)((1)*(4000000/4000.0)));
-        PORTAbits.RA0 = 0;
-        _delay((unsigned long)((1)*(4000000/4000.0)));
     }
-
+    PORTAbits.RA0 = 1;
+    _delay((unsigned long)((1)*(4000000/4000000.0)));
+    PORTAbits.RA0 = 0;
+# 53 "peso.c"
+    valor = valor-0x80000000;
     return valor;
+}
+
+uint32_t tarar(void){
+    uint8_t i;
+    uint32_t sum;
+    uint32_t total=celdaRead();
+    uint32_t pasado;
+    for (i = 0; i < 20; i++) {
+        pasado = total;
+  total =(1-0.65)*celdaRead()+0.65*pasado;
+ }
+ return total;
 }

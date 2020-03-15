@@ -37,9 +37,11 @@
 #define clk PORTAbits.RA0;
 #define celda PORTAbits.RA1;
 
-void celdaSetup(void);
+uint32_t celdaSetup(void);
 
 uint32_t celdaRead(void);
+
+uint32_t tarar(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

@@ -2674,56 +2674,187 @@ void lcd_command(uint8_t a);
 
 
 
-void celdaSetup(void);
+uint32_t celdaSetup(void);
 
 uint32_t celdaRead(void);
+
+uint32_t tarar(void);
 # 31 "main.c" 2
+
+# 1 "./I2C.h" 1
+# 20 "./I2C.h"
+# 1 "D:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
+# 20 "./I2C.h" 2
+# 29 "./I2C.h"
+void I2C_Master_Init(const unsigned long c);
+
+
+
+
+
+
+
+void I2C_Master_Wait(void);
+
+
+
+void I2C_Master_Start(void);
+
+
+
+void I2C_Master_RepeatedStart(void);
+
+
+
+void I2C_Master_Stop(void);
+
+
+
+
+
+void I2C_Master_Write(unsigned d);
+
+
+
+
+unsigned short I2C_Master_Read(unsigned short a);
+
+
+
+void I2C_Slave_Init(uint8_t address);
+# 32 "main.c" 2
 
 
 
 
 void setup(void);
-void int_distance(uint32_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
+void weight(uint32_t valor, uint32_t tare, uint8_t *v4, uint8_t *v0, uint8_t *v1, uint8_t *v2, uint8_t *v3);
+uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e, uint8_t *contador);
 
+uint8_t mandar;
+uint8_t contador=0;
+uint8_t borrar;
+uint8_t z;
+uint8_t b1=0;
+uint8_t m1=0;
 uint8_t c1=0;
 uint8_t d1=0;
 uint8_t u1=0;
+uint32_t peso1=0;
 uint32_t peso=0;
+uint32_t peso_pasado=0;
+uint32_t tare=0;
+
+
+float lambda=0.35;
+
+void __attribute__((picinterrupt(("")))) isr(void){
+    if(PIR1bits.SSPIF==1){
+        SSPCONbits.CKP = 0;
+
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;
+            SSPCONbits.SSPOV = 0;
+            SSPCONbits.WCOL = 0;
+            SSPCONbits.CKP = 1;
+        }
+
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+
+            z = SSPBUF;
+
+            PIR1bits.SSPIF = 0;
+            SSPCONbits.CKP = 1;
+            while(!SSPSTATbits.BF);
+            borrar = SSPBUF;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            z = SSPBUF;
+            BF = 0;
+            mandar=select(b1,m1,c1,d1,u1,&contador);
+            SSPBUF = mandar;
+            SSPCONbits.CKP = 1;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            while(SSPSTATbits.BF);
+
+        }
+
+        PIR1bits.SSPIF = 0;
+    }
+    return;
+}
+
 
 void main(void) {
     setup();
     while(1){
-        celdaRead();
-        int_distance(peso, &c1, &d1, &u1);
-        lcd_cursor(1,3);
-        lcd_wstring("temperatura");
-        lcd_cursor(2,8);
-        lcd_wchar(c1);
-        lcd_wchar(d1);
-        lcd_wstring(".");
-        lcd_wchar(u1);
+        peso_pasado = peso;
+        peso = (1-lambda)*celdaRead()+lambda*peso_pasado;
+        weight(peso1, tare, &b1, &m1, &c1, &d1, &u1);
+        if(contador==0){
+            peso1 = peso;
+        }
+# 113 "main.c"
+        _delay((unsigned long)((250)*(4000000/4000.0)));
     }
     return;
 }
 
 void setup(void){
-    lcd_setup();
-    celdaSetup();
+
+    tare = celdaSetup();
+    peso=tare;
+    INTCON = 0b11000000;
+    I2C_Slave_Init(0x20);
     return;
 }
 
-void int_distance(uint32_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
+void weight(uint32_t valor, uint32_t tare, uint8_t *v4, uint8_t *v0, uint8_t *v1, uint8_t *v2, uint8_t *v3){
+    uint8_t x;
+    uint8_t a;
+    uint8_t b;
+    uint8_t m;
     uint8_t c;
     uint8_t d;
     uint8_t u;
-    float conv = valor&0xFFFFFF;
+    float conv;
+    conv = (float)(valor-tare-512)*(float)(0.0550271739);
 
-
-    c = (uint8_t)(valor/100);
-    d = (uint8_t)((((conv)/10)-(c*10)));
-    u = (uint8_t)((conv)/1-(c*100+d*10));
+    if(conv>=0){
+        b = (uint8_t)(conv/10000);
+        m = (uint8_t)(conv/1000-(b*10));
+        c = (uint8_t)((conv/100)-(b*100+m*10));
+        d = (uint8_t)((((conv)/10)-(b*1000+m*100+c*10)));
+        u = (uint8_t)((conv)/1-(b*10000+m*1000+c*100+d*10));
+    }
+    *v4=b+48;
+    *v0=m+48;
     *v1=c+48;
     *v2=d+48;
     *v3=u+48;
     return;
+}
+
+uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e, uint8_t *contador){
+    if (*contador==0){
+        *contador=*contador+1;
+        return a;
+    }
+    if (*contador==1){
+        *contador=*contador+1;
+        return b;
+    }
+    if (*contador==2){
+        *contador=*contador+1;
+        return c;
+    }
+    if (*contador==3){
+        *contador=*contador+1;
+        return d;
+    }
+    if (*contador==4){
+        *contador=0;
+        return e;
+    }
+    return *contador;
 }

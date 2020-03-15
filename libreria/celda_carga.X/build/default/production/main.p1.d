@@ -1,4 +1,5 @@
 build/default/production/main.p1:  \
 main.c  \
 LCD.h  \
-peso.h 
+peso.h  \
+I2C.h 
