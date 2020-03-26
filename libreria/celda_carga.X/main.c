@@ -35,7 +35,7 @@
 
 void setup(void);
 void weight(uint32_t valor, uint32_t tare, uint8_t *v4, uint8_t *v0, uint8_t *v1, uint8_t *v2, uint8_t *v3);
-uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e, uint8_t *contador);
+uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e, uint8_t peso, uint8_t *contador);
 
 uint8_t mandar;
 uint8_t contador=0;
@@ -50,7 +50,7 @@ uint32_t peso1=0;
 uint32_t peso=0;
 uint32_t peso_pasado=0;
 uint32_t tare=0;
-
+uint8_t pagar=0;
 
 float lambda=0.35;
 
@@ -77,8 +77,8 @@ void __interrupt() isr(void){
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            mandar=select(b1,m1,c1,d1,u1,&contador);
-            SSPBUF = mandar; 
+            mandar=select(b1,m1,c1,d1,u1,peso,&contador);
+            SSPBUF = mandar;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -100,17 +100,16 @@ void main(void) {
         if(contador==0){
             peso1 = peso;
         }
-        /*lcd_cursor(1,3);
-        lcd_wstring("peso");
-        lcd_cursor(2,3);
-        lcd_wchar(b1);
-        lcd_wchar(m1);
-        lcd_wchar(c1);
-        lcd_wchar(d1);
-        lcd_wstring(".");
-        lcd_wchar(u1);
-        lcd_wstring(" g");*/
         __delay_ms(250);
+        if(peso=peso_pasado){
+            if(100<peso<1420){
+                pagar = 1; //paga carro pequeño
+            } else if(1420<=peso<8388607){
+                pagar = 2; //paga carro grande
+            } else {
+                pagar = 0;
+            }
+        }
     }
     return;
 }
@@ -150,7 +149,7 @@ void weight(uint32_t valor, uint32_t tare, uint8_t *v4, uint8_t *v0, uint8_t *v1
     return;
 }
 
-uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e, uint8_t *contador){
+uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e, uint8_t peso, uint8_t *contador){
     if (*contador==0){
         *contador=*contador+1;
         return a;
@@ -168,8 +167,12 @@ uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t d, uint8_t e, uint8_t *c
         return d;
     }
     if (*contador==4){
-        *contador=0;
+        *contador=5;
         return e;
+    }
+    if (*contador==5){
+        *contador=0;
+        return peso;
     }
     return *contador;
 }

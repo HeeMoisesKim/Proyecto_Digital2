@@ -91,7 +91,7 @@ void main(void) {
         int_distance(temperatura1, &c1, &d1, &u1);
         if (contador==0){
             if(temperatura != -100){
-                temperatura1 = temperatura;
+                temperatura1 = temperatura/0.2217506684;
             }
         }
         /*if(temperatura != -100){
@@ -136,18 +136,23 @@ uint8_t select(uint8_t a, uint8_t b, uint8_t c, uint8_t *contador, uint32_t mand
     uint8_t z;
     if (*contador==0){
         *contador=*contador+1;
-        z = mandar>>16;
-        return a;
+        z = mandar>>24;
+        return z;
     }
     if (*contador==1){
         *contador=*contador+1;
-        z = mandar>>8;
-        return b;
+        z = mandar>>16;
+        return z;
     }
     if (*contador==2){
+        *contador=*contador+1;
+        z = mandar>>8;
+        return z;
+    }
+    if (*contador==3){
         *contador=0;
         z = mandar;
-        return c;
+        return z;
     }
     return *contador;
 }

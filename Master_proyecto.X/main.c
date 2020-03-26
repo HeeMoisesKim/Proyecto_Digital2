@@ -57,7 +57,6 @@
 
 void setup(void);
 void int_str(uint32_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
-void int_distance(uint8_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
 void desplegar(float valor, uint8_t *v1, uint8_t *v2, uint8_t *v3, uint8_t *v4, uint8_t *v5);
 
 uint8_t c1=0;
@@ -68,11 +67,19 @@ uint8_t m2=0;
 uint8_t c2=0;
 uint8_t d2=0;
 uint8_t u2=0;
+uint8_t m3=0;
 uint8_t c3=0;
 uint8_t d3=0;
 uint8_t u3=0;
+uint8_t a4=0;
+uint8_t b4=0;
+uint8_t c4=0;
+uint8_t d4=0;
+uint8_t e4=0;
+uint8_t f4=0;
+uint8_t g4=0;
 
-uint8_t contador=0;
+uint32_t temperatura=0;
 
 uint8_t sensor=0;
 
@@ -85,90 +92,171 @@ void main(void) {
     lcd_wstring("S3:");
     
     while(1){
-         //termocupla
+        //termocupla
         I2C_Master_Start();
         I2C_Master_Write(0x31); //le habla a la termocupla
-        c1 = I2C_Master_Read(0);
+        temperatura = I2C_Master_Read(0);
         I2C_Master_Stop();
+        temperatura=temperatura<<8;
         //int_str(adc, &c1, &d1, &u1);
         __delay_ms(1);
         I2C_Master_Start();
         I2C_Master_Write(0x31); //le habla a la termocupla
-        d1 = I2C_Master_Read(0);
+        temperatura = temperatura+I2C_Master_Read(0);
         I2C_Master_Stop();
+        temperatura=temperatura<<8;
         //int_str(adc, &c1, &d1, &u1);
         __delay_ms(1);
         I2C_Master_Start();
         I2C_Master_Write(0x31); //le habla a la termocupla
-        u1 = I2C_Master_Read(0);
+        temperatura = temperatura+I2C_Master_Read(0);
         I2C_Master_Stop();
         //int_str(adc, &c1, &d1, &u1);
         __delay_ms(1);
+        temperatura=temperatura<<8;
+        //int_str(adc, &c1, &d1, &u1);
+        __delay_ms(1);
+        I2C_Master_Start();
+        I2C_Master_Write(0x31); //le habla a la termocupla
+        temperatura = temperatura+I2C_Master_Read(0);
+        I2C_Master_Stop();
+        //int_str(adc, &c1, &d1, &u1);
+        __delay_ms(1);
+        //temperatura = temperatura/0.2217506684;
+        int_str(temperatura, &c1, &d1, &u1);
         
-        //pesa
+        /*//pesa
         I2C_Master_Start();
         I2C_Master_Write(0x21); //le habla al pesa
         b2 = I2C_Master_Read(0);
         I2C_Master_Stop();
-        //desplegar(contador,&b2, &m2, &c2, &d2, &u2);
         __delay_ms(1);        
         I2C_Master_Start();
         I2C_Master_Write(0x21); //le habla al pesa
         m2 = I2C_Master_Read(0);
         I2C_Master_Stop();
-        //desplegar(contador,&b2, &m2, &c2, &d2, &u2);
         __delay_ms(1);
         I2C_Master_Start();
         I2C_Master_Write(0x21); //le habla al pesa
         c2 = I2C_Master_Read(0);
         I2C_Master_Stop();
-        //desplegar(contador,&b2, &m2, &c2, &d2, &u2);
         __delay_ms(1);
         I2C_Master_Start();
         I2C_Master_Write(0x21); //le habla al pesa
         d2 = I2C_Master_Read(0);
         I2C_Master_Stop();
-        //desplegar(contador,&b2, &m2, &c2, &d2, &u2);
         __delay_ms(1);
         I2C_Master_Start();
         I2C_Master_Write(0x21); //le habla al pesa
         u2 = I2C_Master_Read(0);
         I2C_Master_Stop();
-        //desplegar(contador,&b2, &m2, &c2, &d2, &u2);
         __delay_ms(1);
-        /*I2C_Master_Start();
-        I2C_Master_Write(0x61); //le habla al SENSOR
-        sensor = I2C_Master_Read(0);
+        
+        //caudalimetro
+        I2C_Master_Start();
+        I2C_Master_Write(0x11); //le habla al caudal
+        m3 = I2C_Master_Read(0);
         I2C_Master_Stop();
-        int_distance(sensor, &c3, &d3, &u3);
+        __delay_ms(1);        
+        I2C_Master_Start();
+        I2C_Master_Write(0x11); //le habla al caudal
+        c3 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);
+        I2C_Master_Start();
+        I2C_Master_Write(0x11); //le habla al caudal
+        d3 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);
+        I2C_Master_Start();
+        I2C_Master_Write(0x11); //le habla al caudal
+        u3 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);
+        
+        //distancia
+        I2C_Master_Start();
+        I2C_Master_Write(0x71); //le habla a distancia
+        a4 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);        
+        I2C_Master_Start();
+        I2C_Master_Write(0x71); //le habla al distancia
+        b4 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);
+        I2C_Master_Start();
+        I2C_Master_Write(0x71); //le habla al distancia
+        c4 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);
+        I2C_Master_Start();
+        I2C_Master_Write(0x71); //le habla al distancia
+        d4 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);
+        I2C_Master_Start();
+        I2C_Master_Write(0x71); //le habla al distancia
+        e4 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);
+        I2C_Master_Start();
+        I2C_Master_Write(0x71); //le habla al distancia
+        f4 = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(1);        
+        I2C_Master_Start();
+        I2C_Master_Write(0x71); //le habla al distancia
+        g4 = I2C_Master_Read(0);
+        I2C_Master_Stop();
         __delay_ms(1);*/
         
         lcd_command(clean);
         __delay_ms(1);
         lcd_cursor(1,3);
         lcd_wstring("Temperatura:");
-        lcd_cursor(2,2);
+        lcd_cursor(2,3);
         lcd_wchar(c1);
         lcd_wchar(d1);
         lcd_wstring(".");
         lcd_wchar(u1);
-        __delay_ms(500);
+        __delay_ms(1000);
         lcd_command(clean);
         __delay_ms(1);
-        lcd_cursor(1,8);
+        lcd_cursor(1,3);
         lcd_wstring("Peso:");
-        lcd_cursor(2,7);
+        lcd_cursor(2,3);
         lcd_wchar(b2);
         lcd_wchar(m2);
         lcd_wchar(c2);
         lcd_wchar(d2);
+        lcd_wstring(".");
         lcd_wchar(u2);
-        __delay_ms(500);
-        /*lcd_cursor(2,12);
+        __delay_ms(1000);
+        lcd_command(clean);
+        __delay_ms(1);
+        lcd_cursor(1,3);
+        lcd_wstring("Caudal:");
+        lcd_cursor(2,3);
+        lcd_wchar(m3);
+        lcd_wstring(".");
         lcd_wchar(c3);
         lcd_wchar(d3);
-        lcd_wstring(".");
-        lcd_wchar(u3);*/
+        lcd_wchar(u3);
+        __delay_ms(1000);
+        lcd_command(clean);
+        __delay_ms(1);
+        lcd_cursor(1,3);
+        lcd_wstring("Distancia:");
+        lcd_cursor(2,3);
+        lcd_wchar(a4);
+        lcd_wchar(b4);
+        lcd_wchar(c4);
+        lcd_wchar(d4);
+        lcd_wchar(e4);
+        lcd_wchar(f4);
+        lcd_wchar(g4);
+        __delay_ms(1000);
     }
     return;
 }
@@ -188,20 +276,6 @@ void int_str(uint32_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
     uint8_t u;
     float conv=valor;
     c = (uint8_t)(conv/100);
-    d = (uint8_t)((((conv)/10)-(c*10)));
-    u = (uint8_t)((conv)/1-(c*100+d*10));
-    *v1=c+48;
-    *v2=d+48;
-    *v3=u+48;
-    return;
-}
-
-void int_distance(uint8_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
-    uint8_t c;
-    uint8_t d;
-    uint8_t u;
-    float conv=valor;
-    c = (uint8_t)(valor/100);
     d = (uint8_t)((((conv)/10)-(c*10)));
     u = (uint8_t)((conv)/1-(c*100+d*10));
     *v1=c+48;

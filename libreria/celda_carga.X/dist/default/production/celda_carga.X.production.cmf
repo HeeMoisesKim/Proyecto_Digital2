@@ -41,7 +41,7 @@ bssBANK0 BANK0 1 61 61 6 1
 idataBANK3 CODE 0 7F8 7F8 4 2
 dataBANK3 BANK3 1 1A1 1A1 4 1
 bssCOMMON COMMON 1 70 70 7 1
-$C:\Users\moise\AppData\Local\Temp\s8gk.o
+$C:\Users\moise\AppData\Local\Temp\sp38.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 10 10 3 2
 config CONFIG 0 2007 2007 2 2
@@ -100,36 +100,36 @@ STRING 1800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\celda_carga.X.production.o
-13 cinit CODE >1015:C:\Users\moise\AppData\Local\Temp\s8gk.s
-13 cinit CODE >1018:C:\Users\moise\AppData\Local\Temp\s8gk.s
-13 cinit CODE >1068:C:\Users\moise\AppData\Local\Temp\s8gk.s
-14 cinit CODE >1069:C:\Users\moise\AppData\Local\Temp\s8gk.s
-15 cinit CODE >1070:C:\Users\moise\AppData\Local\Temp\s8gk.s
-1A cinit CODE >1071:C:\Users\moise\AppData\Local\Temp\s8gk.s
-1B cinit CODE >1072:C:\Users\moise\AppData\Local\Temp\s8gk.s
-20 cinit CODE >1073:C:\Users\moise\AppData\Local\Temp\s8gk.s
-21 cinit CODE >1074:C:\Users\moise\AppData\Local\Temp\s8gk.s
-26 cinit CODE >1075:C:\Users\moise\AppData\Local\Temp\s8gk.s
-27 cinit CODE >1076:C:\Users\moise\AppData\Local\Temp\s8gk.s
-2C cinit CODE >1077:C:\Users\moise\AppData\Local\Temp\s8gk.s
-2D cinit CODE >1081:C:\Users\moise\AppData\Local\Temp\s8gk.s
-2E cinit CODE >1082:C:\Users\moise\AppData\Local\Temp\s8gk.s
-2F cinit CODE >1083:C:\Users\moise\AppData\Local\Temp\s8gk.s
-30 cinit CODE >1084:C:\Users\moise\AppData\Local\Temp\s8gk.s
-31 cinit CODE >1085:C:\Users\moise\AppData\Local\Temp\s8gk.s
-32 cinit CODE >1086:C:\Users\moise\AppData\Local\Temp\s8gk.s
-33 cinit CODE >1087:C:\Users\moise\AppData\Local\Temp\s8gk.s
-34 cinit CODE >1088:C:\Users\moise\AppData\Local\Temp\s8gk.s
-35 cinit CODE >1091:C:\Users\moise\AppData\Local\Temp\s8gk.s
-36 cinit CODE >1092:C:\Users\moise\AppData\Local\Temp\s8gk.s
-37 cinit CODE >1093:C:\Users\moise\AppData\Local\Temp\s8gk.s
-38 cinit CODE >1094:C:\Users\moise\AppData\Local\Temp\s8gk.s
-39 cinit CODE >1095:C:\Users\moise\AppData\Local\Temp\s8gk.s
-3A cinit CODE >1096:C:\Users\moise\AppData\Local\Temp\s8gk.s
-3B cinit CODE >1097:C:\Users\moise\AppData\Local\Temp\s8gk.s
-3C cinit CODE >1103:C:\Users\moise\AppData\Local\Temp\s8gk.s
-3C cinit CODE >1105:C:\Users\moise\AppData\Local\Temp\s8gk.s
-3D cinit CODE >1106:C:\Users\moise\AppData\Local\Temp\s8gk.s
+13 cinit CODE >1015:C:\Users\moise\AppData\Local\Temp\sp38.s
+13 cinit CODE >1018:C:\Users\moise\AppData\Local\Temp\sp38.s
+13 cinit CODE >1068:C:\Users\moise\AppData\Local\Temp\sp38.s
+14 cinit CODE >1069:C:\Users\moise\AppData\Local\Temp\sp38.s
+15 cinit CODE >1070:C:\Users\moise\AppData\Local\Temp\sp38.s
+1A cinit CODE >1071:C:\Users\moise\AppData\Local\Temp\sp38.s
+1B cinit CODE >1072:C:\Users\moise\AppData\Local\Temp\sp38.s
+20 cinit CODE >1073:C:\Users\moise\AppData\Local\Temp\sp38.s
+21 cinit CODE >1074:C:\Users\moise\AppData\Local\Temp\sp38.s
+26 cinit CODE >1075:C:\Users\moise\AppData\Local\Temp\sp38.s
+27 cinit CODE >1076:C:\Users\moise\AppData\Local\Temp\sp38.s
+2C cinit CODE >1077:C:\Users\moise\AppData\Local\Temp\sp38.s
+2D cinit CODE >1081:C:\Users\moise\AppData\Local\Temp\sp38.s
+2E cinit CODE >1082:C:\Users\moise\AppData\Local\Temp\sp38.s
+2F cinit CODE >1083:C:\Users\moise\AppData\Local\Temp\sp38.s
+30 cinit CODE >1084:C:\Users\moise\AppData\Local\Temp\sp38.s
+31 cinit CODE >1085:C:\Users\moise\AppData\Local\Temp\sp38.s
+32 cinit CODE >1086:C:\Users\moise\AppData\Local\Temp\sp38.s
+33 cinit CODE >1087:C:\Users\moise\AppData\Local\Temp\sp38.s
+34 cinit CODE >1088:C:\Users\moise\AppData\Local\Temp\sp38.s
+35 cinit CODE >1091:C:\Users\moise\AppData\Local\Temp\sp38.s
+36 cinit CODE >1092:C:\Users\moise\AppData\Local\Temp\sp38.s
+37 cinit CODE >1093:C:\Users\moise\AppData\Local\Temp\sp38.s
+38 cinit CODE >1094:C:\Users\moise\AppData\Local\Temp\sp38.s
+39 cinit CODE >1095:C:\Users\moise\AppData\Local\Temp\sp38.s
+3A cinit CODE >1096:C:\Users\moise\AppData\Local\Temp\sp38.s
+3B cinit CODE >1097:C:\Users\moise\AppData\Local\Temp\sp38.s
+3C cinit CODE >1103:C:\Users\moise\AppData\Local\Temp\sp38.s
+3C cinit CODE >1105:C:\Users\moise\AppData\Local\Temp\sp38.s
+3D cinit CODE >1106:C:\Users\moise\AppData\Local\Temp\sp38.s
 4 intentry CODE >57:C:\Users\moise\Desktop\mplab\GitHub\Proyecto_Digital2\libreria\celda_carga.X\main.c
 804 text17 CODE >153:C:\Users\moise\Desktop\mplab\GitHub\Proyecto_Digital2\libreria\celda_carga.X\main.c
 805 text17 CODE >154:C:\Users\moise\Desktop\mplab\GitHub\Proyecto_Digital2\libreria\celda_carga.X\main.c
@@ -662,12 +662,12 @@ _u1 71 0 COMMON 1 bssCOMMON dist/default/production\celda_carga.X.production.o
 ?_celdaSetup D6 0 BANK1 1 cstackBANK1 dist/default/production\celda_carga.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\celda_carga.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\moise\AppData\Local\Temp\s8gk.o
+___sp 0 0 STACK 2 stack C:\Users\moise\AppData\Local\Temp\sp38.o
 _main 1404 0 CODE 0 maintext dist/default/production\celda_carga.X.production.o
 _peso 198 0 BANK3 1 nvBANK3 dist/default/production\celda_carga.X.production.o
 _tare 190 0 BANK3 1 nvBANK3 dist/default/production\celda_carga.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\celda_carga.X.production.o
-start 20 0 CODE 0 init C:\Users\moise\AppData\Local\Temp\s8gk.o
+start 20 0 CODE 0 init C:\Users\moise\AppData\Local\Temp\sp38.o
 ___flmul@aexp A1 0 BANK1 1 cstackBANK1 dist/default/production\celda_carga.X.production.o
 ___flmul@bexp A6 0 BANK1 1 cstackBANK1 dist/default/production\celda_carga.X.production.o
 ___flmul@prod A7 0 BANK1 1 cstackBANK1 dist/default/production\celda_carga.X.production.o
@@ -684,12 +684,12 @@ __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 ?___wmul 29 0 BANK0 1 cstackBANK0 dist/default/production\celda_carga.X.production.o
 __LidataBANK3 0 0 ABS 0 idataBANK3 -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\s8gk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\s8gk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\s8gk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\s8gk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\s8gk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\s8gk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\sp38.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\sp38.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\sp38.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\sp38.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\sp38.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\moise\AppData\Local\Temp\sp38.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\celda_carga.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -715,8 +715,8 @@ __end_of___flsub 2456 0 CODE 0 text3 dist/default/production\celda_carga.X.produ
 __end_of___fltol 26AC 0 CODE 0 text11 dist/default/production\celda_carga.X.production.o
 _INTCON B 0 ABS 0 - dist/default/production\celda_carga.X.production.o
 __Umul8_16@multiplicand 29 0 BANK0 1 cstackBANK0 dist/default/production\celda_carga.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\moise\AppData\Local\Temp\s8gk.o
-___stacklo 0 0 ABS 0 - C:\Users\moise\AppData\Local\Temp\s8gk.o
+___stackhi 0 0 ABS 0 - C:\Users\moise\AppData\Local\Temp\sp38.o
+___stacklo 0 0 ABS 0 - C:\Users\moise\AppData\Local\Temp\sp38.o
 _I2C_Slave_Init 23D6 0 CODE 0 text15 dist/default/production\celda_carga.X.production.o
 ___fladd@a B1 0 BANK1 1 cstackBANK1 dist/default/production\celda_carga.X.production.o
 ___fladd@b AD 0 BANK1 1 cstackBANK1 dist/default/production\celda_carga.X.production.o
@@ -744,7 +744,7 @@ _SSPCON 14 0 ABS 0 - dist/default/production\celda_carga.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\celda_carga.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\celda_carga.X.production.o
 _celdaRead EF8 0 CODE 0 text9 dist/default/production\celda_carga.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\moise\AppData\Local\Temp\s8gk.o
+___int_sp 0 0 STACK 2 stack C:\Users\moise\AppData\Local\Temp\sp38.o
 __end_of_select 10C0 0 CODE 0 text17 dist/default/production\celda_carga.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -813,7 +813,7 @@ ___xxtofl 10C0 0 CODE 0 text10 dist/default/production\celda_carga.X.production.
 __end_of_isr 27BC 0 CODE 0 text16 dist/default/production\celda_carga.X.production.o
 __HnvBANK3 0 0 ABS 0 nvBANK3 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\moise\AppData\Local\Temp\s8gk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\moise\AppData\Local\Temp\sp38.o
 __end_of___xxtofl 1238 0 CODE 0 text10 dist/default/production\celda_carga.X.production.o
 __pdataBANK3 1A1 0 BANK3 1 dataBANK3 dist/default/production\celda_carga.X.production.o
 _celdaSetup 2552 0 CODE 0 text7 dist/default/production\celda_carga.X.production.o

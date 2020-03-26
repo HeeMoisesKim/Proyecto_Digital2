@@ -537,8 +537,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != _temperatura -> -> -U -> 100 `i `l `ul 155  ]
 {
 "94
-[; ;main.c: 94:                 temperatura1 = temperatura;
-[e = _temperatura1 _temperatura ]
+[; ;main.c: 94:                 temperatura1 = temperatura/0.2217506684;
+[e = _temperatura1 -> / -> _temperatura `d .0.2217506684 `ul ]
 "95
 [; ;main.c: 95:             }
 }
@@ -655,11 +655,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 138:         *contador=*contador+1;
 [e = *U _contador -> + -> *U _contador `i -> 1 `i `uc ]
 "139
-[; ;main.c: 139:         z = mandar>>16;
-[e = _z -> >> _mandar -> 16 `i `uc ]
+[; ;main.c: 139:         z = mandar>>24;
+[e = _z -> >> _mandar -> 24 `i `uc ]
 "140
-[; ;main.c: 140:         return a;
-[e ) _a ]
+[; ;main.c: 140:         return z;
+[e ) _z ]
 [e $UE 158  ]
 "141
 [; ;main.c: 141:     }
@@ -673,11 +673,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 143:         *contador=*contador+1;
 [e = *U _contador -> + -> *U _contador `i -> 1 `i `uc ]
 "144
-[; ;main.c: 144:         z = mandar>>8;
-[e = _z -> >> _mandar -> 8 `i `uc ]
+[; ;main.c: 144:         z = mandar>>16;
+[e = _z -> >> _mandar -> 16 `i `uc ]
 "145
-[; ;main.c: 145:         return b;
-[e ) _b ]
+[; ;main.c: 145:         return z;
+[e ) _z ]
 [e $UE 158  ]
 "146
 [; ;main.c: 146:     }
@@ -688,24 +688,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> *U _contador `i -> 2 `i 161  ]
 {
 "148
-[; ;main.c: 148:         *contador=0;
-[e = *U _contador -> -> 0 `i `uc ]
+[; ;main.c: 148:         *contador=*contador+1;
+[e = *U _contador -> + -> *U _contador `i -> 1 `i `uc ]
 "149
-[; ;main.c: 149:         z = mandar;
-[e = _z -> _mandar `uc ]
+[; ;main.c: 149:         z = mandar>>8;
+[e = _z -> >> _mandar -> 8 `i `uc ]
 "150
-[; ;main.c: 150:         return c;
-[e ) _c ]
+[; ;main.c: 150:         return z;
+[e ) _z ]
 [e $UE 158  ]
 "151
 [; ;main.c: 151:     }
 }
 [e :U 161 ]
 "152
-[; ;main.c: 152:     return *contador;
+[; ;main.c: 152:     if (*contador==3){
+[e $ ! == -> *U _contador `i -> 3 `i 162  ]
+{
+"153
+[; ;main.c: 153:         *contador=0;
+[e = *U _contador -> -> 0 `i `uc ]
+"154
+[; ;main.c: 154:         z = mandar;
+[e = _z -> _mandar `uc ]
+"155
+[; ;main.c: 155:         return z;
+[e ) _z ]
+[e $UE 158  ]
+"156
+[; ;main.c: 156:     }
+}
+[e :U 162 ]
+"157
+[; ;main.c: 157:     return *contador;
 [e ) *U _contador ]
 [e $UE 158  ]
-"153
-[; ;main.c: 153: }
+"158
+[; ;main.c: 158: }
 [e :UE 158 ]
 }

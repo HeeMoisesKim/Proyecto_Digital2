@@ -277,18 +277,18 @@
 [v _int_distance int_distance `(v  1 e 1 0 ]
 {
 "125
-[v int_distance@conv conv `f  1 a 4 25 ]
+[v int_distance@conv conv `f  1 a 4 23 ]
 "122
-[v int_distance@c c `uc  1 a 1 29 ]
+[v int_distance@c c `uc  1 a 1 27 ]
 "123
-[v int_distance@d d `uc  1 a 1 24 ]
+[v int_distance@d d `uc  1 a 1 22 ]
 "124
-[v int_distance@u u `uc  1 a 1 23 ]
+[v int_distance@u u `uc  1 a 1 21 ]
 "121
-[v int_distance@valor valor `ul  1 p 4 7 ]
-[v int_distance@v1 v1 `*.1uc  1 p 1 11 ]
-[v int_distance@v2 v2 `*.1uc  1 p 1 12 ]
-[v int_distance@v3 v3 `*.1uc  1 p 1 13 ]
+[v int_distance@valor valor `ul  1 p 4 5 ]
+[v int_distance@v1 v1 `*.1uc  1 p 1 9 ]
+[v int_distance@v2 v2 `*.4uc  1 p 1 10 ]
+[v int_distance@v3 v3 `*.4uc  1 p 1 11 ]
 "133
 } 0
 "10 D:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
@@ -320,8 +320,8 @@
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 6 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 5 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 66 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 65 ]
 "43
 [v ___fltol@f1 f1 `d  1 p 4 61 ]
 "70
@@ -377,13 +377,12 @@
 "135
 [v _select select `(uc  1 e 1 0 ]
 {
-[v select@a a `uc  1 a 1 wreg ]
-[v select@a a `uc  1 a 1 wreg ]
+"136
+[v select@z z `uc  1 a 1 12 ]
+"135
 [v select@b b `uc  1 p 1 0 ]
 [v select@c c `uc  1 p 1 1 ]
-[v select@contador contador `*.1uc  1 p 1 2 ]
+[v select@contador contador `*.4uc  1 p 1 2 ]
 [v select@mandar mandar `ul  1 p 4 3 ]
-"137
-[v select@a a `uc  1 a 1 9 ]
-"153
+"158
 } 0
