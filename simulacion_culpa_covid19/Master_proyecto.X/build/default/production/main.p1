@@ -1,0 +1,1483 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"543 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 543:     struct {
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"542
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 542: typedef union {
+[u S18 `S19 1 ]
+[n S18 . . ]
+"553
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 553: extern volatile PIR1bits_t PIR1bits __attribute__((address(0x00C)));
+[v _PIR1bits `VS18 ~T0 @X0 0 e@12 ]
+"1140
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
+"19 ./UART.h
+[; ;./UART.h: 19: void enviar_dato(uint8_t dato);
+[v _enviar_dato `(v ~T0 @X0 0 ef1`uc ]
+[p mainexit ]
+"60 main.c
+[; ;main.c: 60: void setup(void);
+[v _setup `(v ~T0 @X0 0 ef ]
+"64 ./LCD.h
+[; ;./LCD.h: 64: void lcd_command(uint8_t a);
+[v _lcd_command `(v ~T0 @X0 0 ef1`uc ]
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
+"54 ./LCD.h
+[; ;./LCD.h: 54: void lcd_cursor(uint8_t a, uint8_t b);
+[v _lcd_cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"62
+[; ;./LCD.h: 62: void lcd_wstring(char *string);
+[v _lcd_wstring `(v ~T0 @X0 0 ef1`*uc ]
+"166 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"41 ./I2C.h
+[; ;./I2C.h: 41: void I2C_Master_Start(void);
+[v _I2C_Master_Start `(v ~T0 @X0 0 ef ]
+"55
+[; ;./I2C.h: 55: void I2C_Master_Write(unsigned d);
+[v _I2C_Master_Write `(v ~T0 @X0 0 ef1`ui ]
+"60
+[; ;./I2C.h: 60: unsigned short I2C_Master_Read(unsigned short a);
+[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
+"49
+[; ;./I2C.h: 49: void I2C_Master_Stop(void);
+[v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
+"61 main.c
+[; ;main.c: 61: void int_str(uint32_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3);
+[v _int_str `(v ~T0 @X0 0 ef4`ul`*uc`*uc`*uc ]
+"60 ./LCD.h
+[; ;./LCD.h: 60: void lcd_wchar(char dato);
+[v _lcd_wchar `(v ~T0 @X0 0 ef1`uc ]
+"29 ./I2C.h
+[; ;./I2C.h: 29: void I2C_Master_Init(const unsigned long c);
+[v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
+"18 ./UART.h
+[; ;./UART.h: 18: void USART_setup(uint16_t baudrate, uint8_t tx_enable, uint8_t rc_enable, uint8_t sincrono_asincrono);
+[v _USART_setup `(v ~T0 @X0 0 ef4`ui`uc`uc`uc ]
+"52 ./LCD.h
+[; ;./LCD.h: 52: void lcd_setup(void);
+[v _lcd_setup `(v ~T0 @X0 0 ef ]
+"352 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"1416
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"3387
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"465
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"1708
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1708:     struct {
+[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"1707
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1707: typedef union {
+[u S62 `S63 1 ]
+[n S62 . . ]
+"1718
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
+[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
+"14 main.c
+[p x FOSC = INTRC_NOCLKOUT ]
+"15
+[p x WDTE = OFF ]
+"16
+[p x PWRTE = OFF ]
+"17
+[p x MCLRE = OFF ]
+"18
+[p x CP = OFF ]
+"19
+[p x CPD = OFF ]
+"20
+[p x BOREN = OFF ]
+"21
+[p x IESO = OFF ]
+"22
+[p x FCMEN = OFF ]
+"23
+[p x LVP = OFF ]
+"26
+[p x BOR4V = BOR40V ]
+"27
+[p x WRT = OFF ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"230
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 230: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"292
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 292: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"354
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 354: __asm("PORTD equ 08h");
+[; <" PORTD equ 08h ;# ">
+"416
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 416: __asm("PORTE equ 09h");
+[; <" PORTE equ 09h ;# ">
+"454
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 454: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"461
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 461: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"539
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 539: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"595
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 595: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"652
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 652: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"659
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 659: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"666
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 666: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"673
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 673: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"767
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 767: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"774
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 774: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"845
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 845: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"852
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 852: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"922
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 922: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"929
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 929: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"936
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 936: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"943
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 943: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"1040
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1040: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"1135
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1135: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"1142
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1142: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"1149
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1149: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"1156
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1156: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"1163
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1163: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"1170
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1170: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1240
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1240: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1247
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1247: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1348
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1348: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1418
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1418: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1480
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1480: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1542
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1542: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1604
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1604: __asm("TRISD equ 088h");
+[; <" TRISD equ 088h ;# ">
+"1666
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1666: __asm("TRISE equ 089h");
+[; <" TRISE equ 089h ;# ">
+"1704
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1704: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1760
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1760: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1817
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1817: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1864
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1864: __asm("OSCCON equ 08Fh");
+[; <" OSCCON equ 08Fh ;# ">
+"1929
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1929: __asm("OSCTUNE equ 090h");
+[; <" OSCTUNE equ 090h ;# ">
+"1981
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1981: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"2043
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2043: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"2050
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2050: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"2057
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2057: __asm("SSPMSK equ 093h");
+[; <" SSPMSK equ 093h ;# ">
+"2062
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2062: __asm("MSK equ 093h");
+[; <" MSK equ 093h ;# ">
+"2179
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2179: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"2348
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2348: __asm("WPUB equ 095h");
+[; <" WPUB equ 095h ;# ">
+"2418
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2418: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"2488
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2488: __asm("VRCON equ 097h");
+[; <" VRCON equ 097h ;# ">
+"2558
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2558: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"2644
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2644: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"2706
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2706: __asm("SPBRGH equ 09Ah");
+[; <" SPBRGH equ 09Ah ;# ">
+"2776
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2776: __asm("PWM1CON equ 09Bh");
+[; <" PWM1CON equ 09Bh ;# ">
+"2846
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2846: __asm("ECCPAS equ 09Ch");
+[; <" ECCPAS equ 09Ch ;# ">
+"2928
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2928: __asm("PSTRCON equ 09Dh");
+[; <" PSTRCON equ 09Dh ;# ">
+"2972
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2972: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2979
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 2979: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"3013
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3013: __asm("WDTCON equ 0105h");
+[; <" WDTCON equ 0105h ;# ">
+"3066
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3066: __asm("CM1CON0 equ 0107h");
+[; <" CM1CON0 equ 0107h ;# ">
+"3131
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3131: __asm("CM2CON0 equ 0108h");
+[; <" CM2CON0 equ 0108h ;# ">
+"3196
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3196: __asm("CM2CON1 equ 0109h");
+[; <" CM2CON1 equ 0109h ;# ">
+"3247
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3247: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"3252
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3252: __asm("EEDAT equ 010Ch");
+[; <" EEDAT equ 010Ch ;# ">
+"3259
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3259: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"3266
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3266: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"3273
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3273: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"3280
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3280: __asm("SRCON equ 0185h");
+[; <" SRCON equ 0185h ;# ">
+"3337
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3337: __asm("BAUDCTL equ 0187h");
+[; <" BAUDCTL equ 0187h ;# ">
+"3389
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3389: __asm("ANSEL equ 0188h");
+[; <" ANSEL equ 0188h ;# ">
+"3451
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3451: __asm("ANSELH equ 0189h");
+[; <" ANSELH equ 0189h ;# ">
+"3501
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3501: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"3546
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"64 main.c
+[; ;main.c: 64: uint8_t c1=0;
+[v _c1 `uc ~T0 @X0 1 e ]
+[i _c1
+-> -> 0 `i `uc
+]
+"65
+[; ;main.c: 65: uint8_t d1=0;
+[v _d1 `uc ~T0 @X0 1 e ]
+[i _d1
+-> -> 0 `i `uc
+]
+"66
+[; ;main.c: 66: uint8_t u1=0;
+[v _u1 `uc ~T0 @X0 1 e ]
+[i _u1
+-> -> 0 `i `uc
+]
+"67
+[; ;main.c: 67: uint8_t b2=0;
+[v _b2 `uc ~T0 @X0 1 e ]
+[i _b2
+-> -> 0 `i `uc
+]
+"68
+[; ;main.c: 68: uint8_t m2=0;
+[v _m2 `uc ~T0 @X0 1 e ]
+[i _m2
+-> -> 0 `i `uc
+]
+"69
+[; ;main.c: 69: uint8_t c2=0;
+[v _c2 `uc ~T0 @X0 1 e ]
+[i _c2
+-> -> 0 `i `uc
+]
+"70
+[; ;main.c: 70: uint8_t d2=0;
+[v _d2 `uc ~T0 @X0 1 e ]
+[i _d2
+-> -> 0 `i `uc
+]
+"71
+[; ;main.c: 71: uint8_t u2=0;
+[v _u2 `uc ~T0 @X0 1 e ]
+[i _u2
+-> -> 0 `i `uc
+]
+"72
+[; ;main.c: 72: uint8_t m3=0;
+[v _m3 `uc ~T0 @X0 1 e ]
+[i _m3
+-> -> 0 `i `uc
+]
+"73
+[; ;main.c: 73: uint8_t c3=0;
+[v _c3 `uc ~T0 @X0 1 e ]
+[i _c3
+-> -> 0 `i `uc
+]
+"74
+[; ;main.c: 74: uint8_t d3=0;
+[v _d3 `uc ~T0 @X0 1 e ]
+[i _d3
+-> -> 0 `i `uc
+]
+"75
+[; ;main.c: 75: uint8_t u3=0;
+[v _u3 `uc ~T0 @X0 1 e ]
+[i _u3
+-> -> 0 `i `uc
+]
+"76
+[; ;main.c: 76: uint8_t a4=0;
+[v _a4 `uc ~T0 @X0 1 e ]
+[i _a4
+-> -> 0 `i `uc
+]
+"77
+[; ;main.c: 77: uint8_t b4=0;
+[v _b4 `uc ~T0 @X0 1 e ]
+[i _b4
+-> -> 0 `i `uc
+]
+"78
+[; ;main.c: 78: uint8_t c4=0;
+[v _c4 `uc ~T0 @X0 1 e ]
+[i _c4
+-> -> 0 `i `uc
+]
+"79
+[; ;main.c: 79: uint8_t d4=0;
+[v _d4 `uc ~T0 @X0 1 e ]
+[i _d4
+-> -> 0 `i `uc
+]
+"80
+[; ;main.c: 80: uint8_t e4=0;
+[v _e4 `uc ~T0 @X0 1 e ]
+[i _e4
+-> -> 0 `i `uc
+]
+"81
+[; ;main.c: 81: uint8_t f4=0;
+[v _f4 `uc ~T0 @X0 1 e ]
+[i _f4
+-> -> 0 `i `uc
+]
+"82
+[; ;main.c: 82: uint8_t g4=0;
+[v _g4 `uc ~T0 @X0 1 e ]
+[i _g4
+-> -> 0 `i `uc
+]
+"83
+[; ;main.c: 83: uint8_t peso=0;
+[v _peso `uc ~T0 @X0 1 e ]
+[i _peso
+-> -> 0 `i `uc
+]
+"84
+[; ;main.c: 84: uint8_t PESOUART =0;
+[v _PESOUART `uc ~T0 @X0 1 e ]
+[i _PESOUART
+-> -> 0 `i `uc
+]
+"85
+[; ;main.c: 85: uint8_t CAUDALUART =0;
+[v _CAUDALUART `uc ~T0 @X0 1 e ]
+[i _CAUDALUART
+-> -> 0 `i `uc
+]
+"86
+[; ;main.c: 86: uint8_t DISUART = 0;
+[v _DISUART `uc ~T0 @X0 1 e ]
+[i _DISUART
+-> -> 0 `i `uc
+]
+"89
+[; ;main.c: 89: uint8_t ES=0;
+[v _ES `uc ~T0 @X0 1 e ]
+[i _ES
+-> -> 0 `i `uc
+]
+"91
+[; ;main.c: 91: uint32_t temperatura=0;
+[v _temperatura `ul ~T0 @X0 1 e ]
+[i _temperatura
+-> -> -> 0 `i `l `ul
+]
+"93
+[; ;main.c: 93: uint8_t sensor=0;
+[v _sensor `uc ~T0 @X0 1 e ]
+[i _sensor
+-> -> 0 `i `uc
+]
+"94
+[; ;main.c: 94: uint8_t puerta=0;
+[v _puerta `uc ~T0 @X0 1 e ]
+[i _puerta
+-> -> 0 `i `uc
+]
+"95
+[; ;main.c: 95: uint8_t rango =0;
+[v _rango `uc ~T0 @X0 1 e ]
+[i _rango
+-> -> 0 `i `uc
+]
+"96
+[; ;main.c: 96: uint8_t Cuenta=0;
+[v _Cuenta `uc ~T0 @X0 1 e ]
+[i _Cuenta
+-> -> 0 `i `uc
+]
+"97
+[; ;main.c: 97: uint8_t cambio=0;
+[v _cambio `uc ~T0 @X0 1 e ]
+[i _cambio
+-> -> 0 `i `uc
+]
+"98
+[; ;main.c: 98: uint8_t solicitud=0;
+[v _solicitud `uc ~T0 @X0 1 e ]
+[i _solicitud
+-> -> 0 `i `uc
+]
+"99
+[; ;main.c: 99: uint16_t espera1 = 0;
+[v _espera1 `ui ~T0 @X0 1 e ]
+[i _espera1
+-> -> 0 `i `ui
+]
+"100
+[; ;main.c: 100: uint16_t espera2 = 1;
+[v _espera2 `ui ~T0 @X0 1 e ]
+[i _espera2
+-> -> 1 `i `ui
+]
+"101
+[; ;main.c: 101: uint16_t espera3 = 2;
+[v _espera3 `ui ~T0 @X0 1 e ]
+[i _espera3
+-> -> 2 `i `ui
+]
+"102
+[; ;main.c: 102: uint16_t espera4 =3;
+[v _espera4 `ui ~T0 @X0 1 e ]
+[i _espera4
+-> -> 3 `i `ui
+]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"105
+[; ;main.c: 105: void __attribute__((picinterrupt(("")))) isr(void){
+[v _isr `(v ~T1 @X0 1 ef ]
+{
+[e :U _isr ]
+[f ]
+"107
+[; ;main.c: 107:     if(PIR1bits.RCIF == 1){
+[e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 140  ]
+{
+"108
+[; ;main.c: 108:         PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"110
+[; ;main.c: 110:         solicitud = RCREG;
+[e = _solicitud _RCREG ]
+"112
+[; ;main.c: 112:         if(solicitud == 0){
+[e $ ! == -> _solicitud `i -> 0 `i 141  ]
+{
+"113
+[; ;main.c: 113:             enviar_dato(c1);
+[e ( _enviar_dato (1 _c1 ]
+"114
+[; ;main.c: 114:         }else if(solicitud == 1){
+}
+[e $U 142  ]
+[e :U 141 ]
+[e $ ! == -> _solicitud `i -> 1 `i 143  ]
+{
+"115
+[; ;main.c: 115:             enviar_dato(d1);
+[e ( _enviar_dato (1 _d1 ]
+"116
+[; ;main.c: 116:         }else if(solicitud == 2){
+}
+[e $U 144  ]
+[e :U 143 ]
+[e $ ! == -> _solicitud `i -> 2 `i 145  ]
+{
+"117
+[; ;main.c: 117:             enviar_dato(u1);
+[e ( _enviar_dato (1 _u1 ]
+"118
+[; ;main.c: 118:         }else if(solicitud ==3){
+}
+[e $U 146  ]
+[e :U 145 ]
+[e $ ! == -> _solicitud `i -> 3 `i 147  ]
+{
+"119
+[; ;main.c: 119:             enviar_dato(b2);
+[e ( _enviar_dato (1 _b2 ]
+"120
+[; ;main.c: 120:         }else if(solicitud == 4){
+}
+[e $U 148  ]
+[e :U 147 ]
+[e $ ! == -> _solicitud `i -> 4 `i 149  ]
+{
+"121
+[; ;main.c: 121:             enviar_dato(m2);
+[e ( _enviar_dato (1 _m2 ]
+"122
+[; ;main.c: 122:         }else if(solicitud == 5){
+}
+[e $U 150  ]
+[e :U 149 ]
+[e $ ! == -> _solicitud `i -> 5 `i 151  ]
+{
+"123
+[; ;main.c: 123:             enviar_dato(c2);
+[e ( _enviar_dato (1 _c2 ]
+"124
+[; ;main.c: 124:         }else if(solicitud == 6){
+}
+[e $U 152  ]
+[e :U 151 ]
+[e $ ! == -> _solicitud `i -> 6 `i 153  ]
+{
+"125
+[; ;main.c: 125:             enviar_dato(d2);
+[e ( _enviar_dato (1 _d2 ]
+"126
+[; ;main.c: 126:         }else if(solicitud==7){
+}
+[e $U 154  ]
+[e :U 153 ]
+[e $ ! == -> _solicitud `i -> 7 `i 155  ]
+{
+"127
+[; ;main.c: 127:             enviar_dato(m3);
+[e ( _enviar_dato (1 _m3 ]
+"128
+[; ;main.c: 128:         }else if(solicitud == 8){
+}
+[e $U 156  ]
+[e :U 155 ]
+[e $ ! == -> _solicitud `i -> 8 `i 157  ]
+{
+"129
+[; ;main.c: 129:             enviar_dato(c3);
+[e ( _enviar_dato (1 _c3 ]
+"130
+[; ;main.c: 130:         }else if(solicitud == 9){
+}
+[e $U 158  ]
+[e :U 157 ]
+[e $ ! == -> _solicitud `i -> 9 `i 159  ]
+{
+"131
+[; ;main.c: 131:             enviar_dato(d3);
+[e ( _enviar_dato (1 _d3 ]
+"132
+[; ;main.c: 132:         }else if(solicitud == 10){
+}
+[e $U 160  ]
+[e :U 159 ]
+[e $ ! == -> _solicitud `i -> 10 `i 161  ]
+{
+"133
+[; ;main.c: 133:             enviar_dato(u3);
+[e ( _enviar_dato (1 _u3 ]
+"134
+[; ;main.c: 134:         }else if(solicitud==11){
+}
+[e $U 162  ]
+[e :U 161 ]
+[e $ ! == -> _solicitud `i -> 11 `i 163  ]
+{
+"135
+[; ;main.c: 135:             enviar_dato(a4);
+[e ( _enviar_dato (1 _a4 ]
+"136
+[; ;main.c: 136:         }else if(solicitud == 12){
+}
+[e $U 164  ]
+[e :U 163 ]
+[e $ ! == -> _solicitud `i -> 12 `i 165  ]
+{
+"137
+[; ;main.c: 137:             enviar_dato(b4);
+[e ( _enviar_dato (1 _b4 ]
+"138
+[; ;main.c: 138:         }else if(solicitud == 13){
+}
+[e $U 166  ]
+[e :U 165 ]
+[e $ ! == -> _solicitud `i -> 13 `i 167  ]
+{
+"139
+[; ;main.c: 139:             enviar_dato(c4);
+[e ( _enviar_dato (1 _c4 ]
+"140
+[; ;main.c: 140:         }else if(solicitud == 14){
+}
+[e $U 168  ]
+[e :U 167 ]
+[e $ ! == -> _solicitud `i -> 14 `i 169  ]
+{
+"141
+[; ;main.c: 141:             enviar_dato(d4);
+[e ( _enviar_dato (1 _d4 ]
+"142
+[; ;main.c: 142:         }
+}
+[e :U 169 ]
+[e :U 168 ]
+[e :U 166 ]
+[e :U 164 ]
+[e :U 162 ]
+[e :U 160 ]
+[e :U 158 ]
+[e :U 156 ]
+[e :U 154 ]
+[e :U 152 ]
+[e :U 150 ]
+[e :U 148 ]
+[e :U 146 ]
+[e :U 144 ]
+[e :U 142 ]
+"144
+[; ;main.c: 144:     }
+}
+[e :U 140 ]
+"149
+[; ;main.c: 149: }
+[e :UE 139 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"152
+[; ;main.c: 152: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"154
+[; ;main.c: 154:     setup();
+[e ( _setup ..  ]
+"155
+[; ;main.c: 155:     lcd_command(0x01);
+[e ( _lcd_command (1 -> -> 1 `i `uc ]
+"156
+[; ;main.c: 156:     _delay((unsigned long)((4)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"157
+[; ;main.c: 157:     lcd_cursor(1,1);
+[e ( _lcd_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"158
+[; ;main.c: 158:     lcd_wstring("Bienvenidos CW");
+[e ( _lcd_wstring (1 :s 1C ]
+"160
+[; ;main.c: 160:     while(1){
+[e :U 172 ]
+{
+"161
+[; ;main.c: 161:         PORTA = c1;
+[e = _PORTA _c1 ]
+"163
+[; ;main.c: 163:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"164
+[; ;main.c: 164:         I2C_Master_Write(0x31);
+[e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
+"165
+[; ;main.c: 165:         temperatura = I2C_Master_Read(0);
+[e = _temperatura -> ( _I2C_Master_Read (1 -> -> 0 `i `us `ul ]
+"166
+[; ;main.c: 166:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"167
+[; ;main.c: 167:         temperatura=temperatura<<8;
+[e = _temperatura << _temperatura -> 8 `i ]
+"169
+[; ;main.c: 169:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"170
+[; ;main.c: 170:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"171
+[; ;main.c: 171:         I2C_Master_Write(0x31);
+[e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
+"172
+[; ;main.c: 172:         temperatura = temperatura+I2C_Master_Read(0);
+[e = _temperatura + _temperatura -> ( _I2C_Master_Read (1 -> -> 0 `i `us `ul ]
+"173
+[; ;main.c: 173:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"174
+[; ;main.c: 174:         temperatura=temperatura<<8;
+[e = _temperatura << _temperatura -> 8 `i ]
+"176
+[; ;main.c: 176:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"177
+[; ;main.c: 177:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"178
+[; ;main.c: 178:         I2C_Master_Write(0x31);
+[e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
+"179
+[; ;main.c: 179:         temperatura = temperatura+I2C_Master_Read(0);
+[e = _temperatura + _temperatura -> ( _I2C_Master_Read (1 -> -> 0 `i `us `ul ]
+"180
+[; ;main.c: 180:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"182
+[; ;main.c: 182:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"183
+[; ;main.c: 183:         temperatura=temperatura<<8;
+[e = _temperatura << _temperatura -> 8 `i ]
+"185
+[; ;main.c: 185:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"186
+[; ;main.c: 186:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"187
+[; ;main.c: 187:         I2C_Master_Write(0x31);
+[e ( _I2C_Master_Write (1 -> -> 49 `i `ui ]
+"188
+[; ;main.c: 188:         temperatura = temperatura+I2C_Master_Read(0);
+[e = _temperatura + _temperatura -> ( _I2C_Master_Read (1 -> -> 0 `i `us `ul ]
+"189
+[; ;main.c: 189:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"191
+[; ;main.c: 191:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"193
+[; ;main.c: 193:         int_str(temperatura, &c1, &d1, &u1);
+[e ( _int_str (4 , , , _temperatura &U _c1 &U _d1 &U _u1 ]
+"198
+[; ;main.c: 198:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"199
+[; ;main.c: 199:         I2C_Master_Write(0x21);
+[e ( _I2C_Master_Write (1 -> -> 33 `i `ui ]
+"200
+[; ;main.c: 200:         b2 = I2C_Master_Read(0);
+[e = _b2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"201
+[; ;main.c: 201:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"202
+[; ;main.c: 202:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"203
+[; ;main.c: 203:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"204
+[; ;main.c: 204:         I2C_Master_Write(0x21);
+[e ( _I2C_Master_Write (1 -> -> 33 `i `ui ]
+"205
+[; ;main.c: 205:         m2 = I2C_Master_Read(0);
+[e = _m2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"206
+[; ;main.c: 206:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"207
+[; ;main.c: 207:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"208
+[; ;main.c: 208:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"209
+[; ;main.c: 209:         I2C_Master_Write(0x21);
+[e ( _I2C_Master_Write (1 -> -> 33 `i `ui ]
+"210
+[; ;main.c: 210:         c2 = I2C_Master_Read(0);
+[e = _c2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"211
+[; ;main.c: 211:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"212
+[; ;main.c: 212:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"213
+[; ;main.c: 213:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"214
+[; ;main.c: 214:         I2C_Master_Write(0x21);
+[e ( _I2C_Master_Write (1 -> -> 33 `i `ui ]
+"215
+[; ;main.c: 215:         d2 = I2C_Master_Read(0);
+[e = _d2 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"216
+[; ;main.c: 216:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"217
+[; ;main.c: 217:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"218
+[; ;main.c: 218:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"219
+[; ;main.c: 219:         I2C_Master_Write(0x21);
+[e ( _I2C_Master_Write (1 -> -> 33 `i `ui ]
+"220
+[; ;main.c: 220:         peso = I2C_Master_Read(0);
+[e = _peso -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"221
+[; ;main.c: 221:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"222
+[; ;main.c: 222:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"226
+[; ;main.c: 226:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"227
+[; ;main.c: 227:         I2C_Master_Write(0x11);
+[e ( _I2C_Master_Write (1 -> -> 17 `i `ui ]
+"228
+[; ;main.c: 228:         m3 = I2C_Master_Read(0);
+[e = _m3 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"229
+[; ;main.c: 229:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"230
+[; ;main.c: 230:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"231
+[; ;main.c: 231:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"232
+[; ;main.c: 232:         I2C_Master_Write(0x11);
+[e ( _I2C_Master_Write (1 -> -> 17 `i `ui ]
+"233
+[; ;main.c: 233:         c3 = I2C_Master_Read(0);
+[e = _c3 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"234
+[; ;main.c: 234:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"235
+[; ;main.c: 235:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"236
+[; ;main.c: 236:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"237
+[; ;main.c: 237:         I2C_Master_Write(0x11);
+[e ( _I2C_Master_Write (1 -> -> 17 `i `ui ]
+"238
+[; ;main.c: 238:         d3 = I2C_Master_Read(0);
+[e = _d3 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"239
+[; ;main.c: 239:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"240
+[; ;main.c: 240:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"241
+[; ;main.c: 241:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"242
+[; ;main.c: 242:         I2C_Master_Write(0x11);
+[e ( _I2C_Master_Write (1 -> -> 17 `i `ui ]
+"243
+[; ;main.c: 243:         u3 = I2C_Master_Read(0);
+[e = _u3 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"244
+[; ;main.c: 244:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"245
+[; ;main.c: 245:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"249
+[; ;main.c: 249:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"250
+[; ;main.c: 250:         I2C_Master_Write(0x71);
+[e ( _I2C_Master_Write (1 -> -> 113 `i `ui ]
+"251
+[; ;main.c: 251:         a4 = I2C_Master_Read(0);
+[e = _a4 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"252
+[; ;main.c: 252:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"253
+[; ;main.c: 253:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"255
+[; ;main.c: 255:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"256
+[; ;main.c: 256:         I2C_Master_Write(0x71);
+[e ( _I2C_Master_Write (1 -> -> 113 `i `ui ]
+"257
+[; ;main.c: 257:         b4 = I2C_Master_Read(0);
+[e = _b4 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"258
+[; ;main.c: 258:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"259
+[; ;main.c: 259:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"261
+[; ;main.c: 261:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"262
+[; ;main.c: 262:         I2C_Master_Write(0x71);
+[e ( _I2C_Master_Write (1 -> -> 113 `i `ui ]
+"263
+[; ;main.c: 263:         c4 = I2C_Master_Read(0);
+[e = _c4 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"264
+[; ;main.c: 264:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"265
+[; ;main.c: 265:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"267
+[; ;main.c: 267:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"268
+[; ;main.c: 268:         I2C_Master_Write(0x71);
+[e ( _I2C_Master_Write (1 -> -> 113 `i `ui ]
+"269
+[; ;main.c: 269:         d4 = I2C_Master_Read(0);
+[e = _d4 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"270
+[; ;main.c: 270:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"271
+[; ;main.c: 271:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"273
+[; ;main.c: 273:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"274
+[; ;main.c: 274:         I2C_Master_Write(0x71);
+[e ( _I2C_Master_Write (1 -> -> 113 `i `ui ]
+"275
+[; ;main.c: 275:         rango = I2C_Master_Read(0);
+[e = _rango -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"276
+[; ;main.c: 276:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"277
+[; ;main.c: 277:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"279
+[; ;main.c: 279:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"280
+[; ;main.c: 280:         I2C_Master_Write(0x71);
+[e ( _I2C_Master_Write (1 -> -> 113 `i `ui ]
+"281
+[; ;main.c: 281:         puerta = I2C_Master_Read(0);
+[e = _puerta -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"282
+[; ;main.c: 282:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"283
+[; ;main.c: 283:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"286
+[; ;main.c: 286:         if(espera1!=0){
+[e $ ! != _espera1 -> -> 0 `i `ui 174  ]
+{
+"287
+[; ;main.c: 287:             espera1--;
+[e -- _espera1 -> -> 1 `i `ui ]
+"288
+[; ;main.c: 288:         }else if(espera1==0){
+}
+[e $U 175  ]
+[e :U 174 ]
+[e $ ! == _espera1 -> -> 0 `i `ui 176  ]
+{
+"289
+[; ;main.c: 289:             lcd_command(0x01);
+[e ( _lcd_command (1 -> -> 1 `i `uc ]
+"290
+[; ;main.c: 290:             _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"291
+[; ;main.c: 291:             lcd_cursor(1,3);
+[e ( _lcd_cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"292
+[; ;main.c: 292:             lcd_wstring("Temperatura:");
+[e ( _lcd_wstring (1 :s 2C ]
+"293
+[; ;main.c: 293:             lcd_cursor(2,3);
+[e ( _lcd_cursor (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"294
+[; ;main.c: 294:             lcd_wchar(c1);
+[e ( _lcd_wchar (1 -> _c1 `uc ]
+"295
+[; ;main.c: 295:             lcd_wchar(d1);
+[e ( _lcd_wchar (1 -> _d1 `uc ]
+"296
+[; ;main.c: 296:             lcd_wstring(".");
+[e ( _lcd_wstring (1 :s 3C ]
+"297
+[; ;main.c: 297:             lcd_wchar(u1);
+[e ( _lcd_wchar (1 -> _u1 `uc ]
+"298
+[; ;main.c: 298:             lcd_wstring("C");
+[e ( _lcd_wstring (1 :s 4C ]
+"299
+[; ;main.c: 299:             espera1=4;
+[e = _espera1 -> -> 4 `i `ui ]
+"300
+[; ;main.c: 300:         }
+}
+[e :U 176 ]
+[e :U 175 ]
+"301
+[; ;main.c: 301:         if(espera2!=0){
+[e $ ! != _espera2 -> -> 0 `i `ui 177  ]
+{
+"302
+[; ;main.c: 302:             espera2--;
+[e -- _espera2 -> -> 1 `i `ui ]
+"303
+[; ;main.c: 303:         }else if(espera2==0){
+}
+[e $U 178  ]
+[e :U 177 ]
+[e $ ! == _espera2 -> -> 0 `i `ui 179  ]
+{
+"304
+[; ;main.c: 304:             lcd_command(0x01);
+[e ( _lcd_command (1 -> -> 1 `i `uc ]
+"305
+[; ;main.c: 305:             _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"306
+[; ;main.c: 306:             lcd_cursor(1,3);
+[e ( _lcd_cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"307
+[; ;main.c: 307:             lcd_wstring("Peso:");
+[e ( _lcd_wstring (1 :s 5C ]
+"308
+[; ;main.c: 308:             lcd_cursor(2,3);
+[e ( _lcd_cursor (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"309
+[; ;main.c: 309:             lcd_wchar(b2);
+[e ( _lcd_wchar (1 -> _b2 `uc ]
+"310
+[; ;main.c: 310:             lcd_wchar(m2);
+[e ( _lcd_wchar (1 -> _m2 `uc ]
+"311
+[; ;main.c: 311:             lcd_wchar(c2);
+[e ( _lcd_wchar (1 -> _c2 `uc ]
+"312
+[; ;main.c: 312:             lcd_wchar(d2);
+[e ( _lcd_wchar (1 -> _d2 `uc ]
+"313
+[; ;main.c: 313:             lcd_wstring("kg");
+[e ( _lcd_wstring (1 :s 6C ]
+"314
+[; ;main.c: 314:             espera2=4;
+[e = _espera2 -> -> 4 `i `ui ]
+"315
+[; ;main.c: 315:         }
+}
+[e :U 179 ]
+[e :U 178 ]
+"316
+[; ;main.c: 316:         if(espera3!=0){
+[e $ ! != _espera3 -> -> 0 `i `ui 180  ]
+{
+"317
+[; ;main.c: 317:             espera3--;
+[e -- _espera3 -> -> 1 `i `ui ]
+"318
+[; ;main.c: 318:         }else if(espera3==0){
+}
+[e $U 181  ]
+[e :U 180 ]
+[e $ ! == _espera3 -> -> 0 `i `ui 182  ]
+{
+"319
+[; ;main.c: 319:             lcd_command(0x01);
+[e ( _lcd_command (1 -> -> 1 `i `uc ]
+"320
+[; ;main.c: 320:             _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"321
+[; ;main.c: 321:             lcd_cursor(1,3);
+[e ( _lcd_cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"322
+[; ;main.c: 322:             lcd_wstring("Caudal:");
+[e ( _lcd_wstring (1 :s 7C ]
+"323
+[; ;main.c: 323:             lcd_cursor(2,3);
+[e ( _lcd_cursor (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"324
+[; ;main.c: 324:             lcd_wchar(m3);
+[e ( _lcd_wchar (1 -> _m3 `uc ]
+"325
+[; ;main.c: 325:             lcd_wstring(".");
+[e ( _lcd_wstring (1 :s 8C ]
+"326
+[; ;main.c: 326:             lcd_wchar(c3);
+[e ( _lcd_wchar (1 -> _c3 `uc ]
+"327
+[; ;main.c: 327:             lcd_wchar(d3);
+[e ( _lcd_wchar (1 -> _d3 `uc ]
+"328
+[; ;main.c: 328:             lcd_wchar(u3);
+[e ( _lcd_wchar (1 -> _u3 `uc ]
+"329
+[; ;main.c: 329:             espera3=4;
+[e = _espera3 -> -> 4 `i `ui ]
+"330
+[; ;main.c: 330:         }
+}
+[e :U 182 ]
+[e :U 181 ]
+"331
+[; ;main.c: 331:         if(espera4!=0){
+[e $ ! != _espera4 -> -> 0 `i `ui 183  ]
+{
+"332
+[; ;main.c: 332:             espera4--;
+[e -- _espera4 -> -> 1 `i `ui ]
+"333
+[; ;main.c: 333:         }else if(espera4==0){
+}
+[e $U 184  ]
+[e :U 183 ]
+[e $ ! == _espera4 -> -> 0 `i `ui 185  ]
+{
+"334
+[; ;main.c: 334:             lcd_command(0x01);
+[e ( _lcd_command (1 -> -> 1 `i `uc ]
+"335
+[; ;main.c: 335:             _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"336
+[; ;main.c: 336:             lcd_cursor(1,3);
+[e ( _lcd_cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"337
+[; ;main.c: 337:             lcd_wstring("Distancia:");
+[e ( _lcd_wstring (1 :s 9C ]
+"338
+[; ;main.c: 338:             lcd_cursor(2,3);
+[e ( _lcd_cursor (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"339
+[; ;main.c: 339:             lcd_wchar(a4);
+[e ( _lcd_wchar (1 -> _a4 `uc ]
+"340
+[; ;main.c: 340:             lcd_wchar(b4);
+[e ( _lcd_wchar (1 -> _b4 `uc ]
+"341
+[; ;main.c: 341:             lcd_wstring(".");
+[e ( _lcd_wstring (1 :s 10C ]
+"342
+[; ;main.c: 342:             lcd_wchar(c4);
+[e ( _lcd_wchar (1 -> _c4 `uc ]
+"343
+[; ;main.c: 343:             lcd_wchar(d4);
+[e ( _lcd_wchar (1 -> _d4 `uc ]
+"344
+[; ;main.c: 344:             lcd_wstring("cm");
+[e ( _lcd_wstring (1 :s 11C ]
+"345
+[; ;main.c: 345:             espera4=4;
+[e = _espera4 -> -> 4 `i `ui ]
+"346
+[; ;main.c: 346:         }
+}
+[e :U 185 ]
+[e :U 184 ]
+"353
+[; ;main.c: 353:     }
+}
+[e :U 171 ]
+[e $U 172  ]
+[e :U 173 ]
+"354
+[; ;main.c: 354:     return;
+[e $UE 170  ]
+"355
+[; ;main.c: 355: }
+[e :UE 170 ]
+}
+"357
+[; ;main.c: 357: void setup(void){
+[v _setup `(v ~T0 @X0 1 ef ]
+{
+[e :U _setup ]
+[f ]
+"359
+[; ;main.c: 359:     I2C_Master_Init(100000);
+[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
+"360
+[; ;main.c: 360:     USART_setup(9600, 1, 1, 0);
+[e ( _USART_setup (4 , , , -> -> 9600 `i `ui -> -> 1 `i `uc -> -> 1 `i `uc -> -> 0 `i `uc ]
+"361
+[; ;main.c: 361:     lcd_setup();
+[e ( _lcd_setup ..  ]
+"363
+[; ;main.c: 363:     PORTD = 0 ;
+[e = _PORTD -> -> 0 `i `uc ]
+"364
+[; ;main.c: 364:     TRISA=0;
+[e = _TRISA -> -> 0 `i `uc ]
+"365
+[; ;main.c: 365:     ANSEL=0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"366
+[; ;main.c: 366:     PORTA=0;
+[e = _PORTA -> -> 0 `i `uc ]
+"368
+[; ;main.c: 368:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"369
+[; ;main.c: 369:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"370
+[; ;main.c: 370:     PIE1bits.RCIE = 1;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"371
+[; ;main.c: 371:     return;
+[e $UE 186  ]
+"372
+[; ;main.c: 372: }
+[e :UE 186 ]
+}
+"374
+[; ;main.c: 374: void int_str(uint32_t valor, uint8_t *v1, uint8_t *v2, uint8_t *v3){
+[v _int_str `(v ~T0 @X0 1 ef4`ul`*uc`*uc`*uc ]
+{
+[e :U _int_str ]
+[v _valor `ul ~T0 @X0 1 r1 ]
+[v _v1 `*uc ~T0 @X0 1 r2 ]
+[v _v2 `*uc ~T0 @X0 1 r3 ]
+[v _v3 `*uc ~T0 @X0 1 r4 ]
+[f ]
+"375
+[; ;main.c: 375:     uint8_t c;
+[v _c `uc ~T0 @X0 1 a ]
+"376
+[; ;main.c: 376:     uint8_t d;
+[v _d `uc ~T0 @X0 1 a ]
+"377
+[; ;main.c: 377:     uint8_t u;
+[v _u `uc ~T0 @X0 1 a ]
+"378
+[; ;main.c: 378:     float conv=valor;
+[v _conv `f ~T0 @X0 1 a ]
+[e = _conv -> _valor `f ]
+"379
+[; ;main.c: 379:     c = (uint8_t)(conv/100);
+[e = _c -> / _conv -> -> 100 `i `f `uc ]
+"380
+[; ;main.c: 380:     d = (uint8_t)((((conv)/10)-(c*10)));
+[e = _d -> - / _conv -> -> 10 `i `f -> * -> _c `i -> 10 `i `f `uc ]
+"381
+[; ;main.c: 381:     u = (uint8_t)((conv)/1-(c*100+d*10));
+[e = _u -> - / _conv -> -> 1 `i `f -> + * -> _c `i -> 100 `i * -> _d `i -> 10 `i `f `uc ]
+"382
+[; ;main.c: 382:     *v1=c+48;
+[e = *U _v1 -> + -> _c `i -> 48 `i `uc ]
+"383
+[; ;main.c: 383:     *v2=d+48;
+[e = *U _v2 -> + -> _d `i -> 48 `i `uc ]
+"384
+[; ;main.c: 384:     *v3=u+48;
+[e = *U _v3 -> + -> _u `i -> 48 `i `uc ]
+"385
+[; ;main.c: 385:     return;
+[e $UE 187  ]
+"386
+[; ;main.c: 386: }
+[e :UE 187 ]
+}
+"389
+[; ;main.c: 389: void desplegar(float valor, uint8_t *v1, uint8_t *v2, uint8_t *v3, uint8_t *v4, uint8_t *v5){
+[v _desplegar `(v ~T0 @X0 1 ef6`f`*uc`*uc`*uc`*uc`*uc ]
+{
+[e :U _desplegar ]
+[v _valor `f ~T0 @X0 1 r1 ]
+[v _v1 `*uc ~T0 @X0 1 r2 ]
+[v _v2 `*uc ~T0 @X0 1 r3 ]
+[v _v3 `*uc ~T0 @X0 1 r4 ]
+[v _v4 `*uc ~T0 @X0 1 r5 ]
+[v _v5 `*uc ~T0 @X0 1 r6 ]
+[f ]
+"390
+[; ;main.c: 390:     uint8_t b;
+[v _b `uc ~T0 @X0 1 a ]
+"391
+[; ;main.c: 391:     uint8_t m;
+[v _m `uc ~T0 @X0 1 a ]
+"392
+[; ;main.c: 392:     uint8_t c;
+[v _c `uc ~T0 @X0 1 a ]
+"393
+[; ;main.c: 393:     uint8_t d;
+[v _d `uc ~T0 @X0 1 a ]
+"394
+[; ;main.c: 394:     uint8_t u;
+[v _u `uc ~T0 @X0 1 a ]
+"395
+[; ;main.c: 395:     float conv=valor;
+[v _conv `f ~T0 @X0 1 a ]
+[e = _conv _valor ]
+"396
+[; ;main.c: 396:         b = (uint8_t)(conv/10000);
+[e = _b -> / _conv -> -> 10000 `i `f `uc ]
+"397
+[; ;main.c: 397:         m = (uint8_t)(conv/1000-(b*10));
+[e = _m -> - / _conv -> -> 1000 `i `f -> * -> _b `i -> 10 `i `f `uc ]
+"398
+[; ;main.c: 398:         c = (uint8_t)((conv/100)-(b*100+m*10));
+[e = _c -> - / _conv -> -> 100 `i `f -> + * -> _b `i -> 100 `i * -> _m `i -> 10 `i `f `uc ]
+"399
+[; ;main.c: 399:         d = (uint8_t)((((conv)/10)-(b*1000+m*100+c*10)));
+[e = _d -> - / _conv -> -> 10 `i `f -> + + * -> _b `i -> 1000 `i * -> _m `i -> 100 `i * -> _c `i -> 10 `i `f `uc ]
+"400
+[; ;main.c: 400:         u = (uint8_t)((conv)/1-(b*10000+m*1000+c*100+d*10));
+[e = _u -> - / _conv -> -> 1 `i `f -> + + + * -> _b `i -> 10000 `i * -> _m `i -> 1000 `i * -> _c `i -> 100 `i * -> _d `i -> 10 `i `f `uc ]
+"401
+[; ;main.c: 401:     *v1=b+48;
+[e = *U _v1 -> + -> _b `i -> 48 `i `uc ]
+"402
+[; ;main.c: 402:     *v2=m+48;
+[e = *U _v2 -> + -> _m `i -> 48 `i `uc ]
+"403
+[; ;main.c: 403:     *v3=c+48;
+[e = *U _v3 -> + -> _c `i -> 48 `i `uc ]
+"404
+[; ;main.c: 404:     *v4=d+48;
+[e = *U _v4 -> + -> _d `i -> 48 `i `uc ]
+"405
+[; ;main.c: 405:     *v5=u+48;
+[e = *U _v5 -> + -> _u `i -> 48 `i `uc ]
+"406
+[; ;main.c: 406:     return;
+[e $UE 188  ]
+"407
+[; ;main.c: 407: }
+[e :UE 188 ]
+}
+[a 11C 99 109 0 ]
+[a 6C 107 103 0 ]
+[a 1C 66 105 101 110 118 101 110 105 100 111 115 32 67 87 0 ]
+[a 4C 67 0 ]
+[a 5C 80 101 115 111 58 0 ]
+[a 7C 67 97 117 100 97 108 58 0 ]
+[a 2C 84 101 109 112 101 114 97 116 117 114 97 58 0 ]
+[a 9C 68 105 115 116 97 110 99 105 97 58 0 ]
+[a 3C 46 0 ]
+[a 8C 46 0 ]
+[a 10C 46 0 ]
